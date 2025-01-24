@@ -34,8 +34,8 @@ body {
 }
 
 .swiper {
-  width: 334px;
-  height: 74px;
+  width: 1236px;
+  height: 112.89px;
 }
 
 .swiper-slide {
@@ -49,18 +49,22 @@ body {
 
 .swiper-slide img {
   display: block;
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-@media (max-width: 375px) {
-  .swiper-slide img {
-    width: 54px;
-    height: 54px;
-  }
+@media (max-width: 480px) {
   .swiper {
-    width: 334px;
-    height: 74px;
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    font-size: 12px; /* اندازه فونت کوچکتر */
+  }
+
+  .swiper-slide img {
+    height: 70%;
   }
 }

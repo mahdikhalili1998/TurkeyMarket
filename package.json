@@ -9,18 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "jquery": "^3.7.1",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-select": "^5.10.0",
+    "select2": "^4.1.0-rc.0",
     "swiper": "^11.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@svgr/webpack": "^8.1.0",
+    "@types/jquery": "^3.5.32",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-select": "^5.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.5",
     "postcss": "^8",

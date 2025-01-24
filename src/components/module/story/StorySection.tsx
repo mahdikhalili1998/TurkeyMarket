@@ -51,25 +51,29 @@ function StorySection() {
   return (
     <div className="relative mb-7 border-t-[1px] border-solid border-gray-400 bg-field6 py-8 dark:bg-darkMoodBg">
       <Swiper
-        slidesPerView={10}
-        spaceBetween={5}
+        slidesPerView={11}
+        spaceBetween={15}
         modules={[Pagination]}
         className="mySwiper h-[74px] w-[334px]"
         breakpoints={{
-          375: {
-            slidesPerView: 5, // در عرض 375 پیکسل، 5 اسلاید نمایش داده شود
-            spaceBetween: 5, // فاصله بین اسلایدها (به صورت دلخواه تنظیم کنید)
+          1024: {
+            slidesPerView: 10, // تعداد اسلایدها برای نمایش‌های بزرگتر از 1024px
           },
           768: {
-            slidesPerView: 7, // مثال: در عرض 768 پیکسل، 7 اسلاید نمایش داده شود
-            spaceBetween: 10,
+            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بزرگتر از 768px
+          },
+          480: {
+            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بزرگتر از 480px
+          },
+          320: {
+            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بسیار کوچک (مثل موبایل‌های کوچک)
           },
         }}
       >
         {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div
-              className="flex h-[74px] w-[54px] cursor-pointer flex-col items-center"
+              className="flex h-[74px] w-[54px] cursor-pointer flex-col items-center xl:h-[110px] xl:w-[84px]"
               onClick={() => seenStoryHandler(index)}
             >
               <Image
@@ -88,18 +92,18 @@ function StorySection() {
       {currentStory && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-black bg-opacity-10">
           <div
-            className="relative w-[840px] rounded-lg bg-gray-800 p-6"
+            className="relative w-[200px] rounded-lg bg-gray-800 p-6 xl:w-[840px]"
             onMouseDown={() => setIsPaused(true)}
             onMouseUp={() => setIsPaused(false)}
           >
-            <div className="absolute left-0 top-0 flex w-full gap-1 px-2">
+            <div className="absolute left-0 top-0 flex w-[200px] gap-1 px-2 xl:w-full">
               {currentStory.post.map((_, postIndex) => (
                 <div
                   key={`${currentIndex}-${postIndex}`}
                   className={`h-2 flex-1 overflow-hidden rounded bg-gray-500`}
                 >
                   <div
-                    className={`h-full bg-main-orange ${
+                    className={`h-[300px] bg-main-orange xl:h-full ${
                       postIndex === currentPostIndex ? "visible" : "hidden"
                     }`}
                     style={{
@@ -139,19 +143,19 @@ function StorySection() {
             </button>
 
             <div
-              style={{
-                width: "600px",
-                height: "600px",
-                overflow: "hidden",
-              }}
-              className="mx-auto rounded-md"
+              // style={{
+              //   width: "600px",
+              //   height: "600px",
+              //   overflow: "hidden",
+              // }}
+              className="mx-auto h-[300px] w-[500px] overflow-hidden rounded-md xl:h-[600px] xl:w-[600px]"
             >
               <Image
                 src={currentStory.post[currentPostIndex].src}
                 width={600}
                 height={600}
                 alt={`Story ${currentPostIndex + 1}`}
-                className="h-full w-full object-cover"
+                className="h-auto w-[200px] object-cover xl:h-full xl:w-full"
               />
             </div>
           </div>

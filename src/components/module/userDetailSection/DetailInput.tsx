@@ -4,6 +4,7 @@ import DownArrow from "../../../../public/icon/down.svg";
 import { countries } from "@/constant/countryData";
 import ImageTag from "@/components/element/ImageTag";
 import Image from "next/image";
+import Dropdown from "../DropDown";
 
 function DetailInput() {
   const [userDetail, setUserDetail] = useState({
@@ -33,6 +34,24 @@ function DetailInput() {
     code: "90+",
     flag: "/icon/turkyFlag.svg",
   });
+
+  const [selectedCity, setSelectedCity] = useState(""); // برای ذخیره انتخاب شهر
+
+  const cities = [
+    "استانبول",
+    "آنکارا",
+    "ازمیر",
+    "بورسا",
+    "آنتالیا",
+    "قونیه",
+    "ادیامان",
+    "دیاربکر",
+    "آدانا",
+  ]; // لیست شهرهای ترکیه
+
+  const handleSelectCity = (city: string) => {
+    setSelectedCity(city); // ذخیره انتخاب شهر در state
+  };
 
   const countryDropdownRef = useRef(null);
   const phoneDropdownRef = useRef(null);
@@ -272,7 +291,8 @@ function DetailInput() {
             </div>
           )}
         </div>
-        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
+
+        {/* <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
           <label className="text-xs font-bold xl:text-base">شهر :</label>
           <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
             <div className="flex gap-3">
@@ -285,7 +305,27 @@ function DetailInput() {
               </select>
             </div>
           </div>
+        </div> */}
+        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
+          <label className="text-xs font-bold xl:text-base">شهر :</label>
+          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
+            <div className="flex gap-3">
+              <select
+                value={selectedCity} // تنظیم مقدار انتخابی شهر
+                onChange={(e) => handleSelectCity(e.target.value)} // به روز رسانی شهر انتخابی
+                className="w-[20rem] xl:w-[15rem] text-gray-300 focus:outline-none dark:bg-dark-bg"
+              >
+                <option value="">انتخاب شهر</option>
+                {cities.map((city, index) => (
+                  <option key={index} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
+
         <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
           <label className="text-xs font-bold xl:text-base">کدپستی : </label>
           <div className="border-input-border flex items-center rounded-md border-2 border-solid bg-transparent dark:border-gray-500">
