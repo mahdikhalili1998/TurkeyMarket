@@ -41,7 +41,7 @@ function FirstSection() {
               <span className="text-xs font-semibold xl:text-base">
                 021-4256
               </span>
-              <div className="xl:block">
+              <div className="xl:hidden">
                 <TelFooter height={19} width={19} />
               </div>
               <div className="hidden xl:block">

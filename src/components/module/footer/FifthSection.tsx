@@ -3,7 +3,7 @@ import React from "react";
 
 function FifthSection() {
   return (
-    <ul className="mt-3">
+    <ul className="mt-3 xl:hidden">
       <li className="mx-4 mt-3 flex items-center justify-between gap-3 rounded-md bg-field6 p-2 px-3 text-text-color">
         <span className="text-xs font-semibold">دسترسی سریع</span>
         <LeftArrow />
