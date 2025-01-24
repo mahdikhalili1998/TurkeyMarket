@@ -1,7 +1,6 @@
 "use client";
 import ImageTag from "@/components/element/ImageTag";
 import { useEffect, useState } from "react";
-import Bells from "../../../../public/icon/bell.svg";
 import Sun from "../../../../public/icon/sun.svg";
 import Basket from "@/components/icon/Basket";
 import Menu1 from "@/components/icon/Menu1";
