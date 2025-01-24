@@ -4,7 +4,6 @@ import DownArrow from "../../../../public/icon/down.svg";
 import { countries } from "@/constant/countryData";
 import ImageTag from "@/components/element/ImageTag";
 import Image from "next/image";
-import Dropdown from "../DropDown";
 
 function DetailInput() {
   const [userDetail, setUserDetail] = useState({
@@ -313,7 +312,7 @@ function DetailInput() {
               <select
                 value={selectedCity} // تنظیم مقدار انتخابی شهر
                 onChange={(e) => handleSelectCity(e.target.value)} // به روز رسانی شهر انتخابی
-                className="w-[20rem] xl:w-[15rem] text-gray-300 focus:outline-none dark:bg-dark-bg"
+                className="w-[20rem] text-gray-300 focus:outline-none dark:bg-dark-bg xl:w-[15rem]"
               >
                 <option value="">انتخاب شهر</option>
                 {cities.map((city, index) => (
