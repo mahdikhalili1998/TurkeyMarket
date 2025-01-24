@@ -3,7 +3,7 @@ import React from "react";
 
 function ThirdSection() {
   return (
-    <div className="dark:bg-field3  mx-16 mt-12 flex items-center justify-between dark:text-white">
+    <div className="mx-16 mt-12 hidden items-center justify-between dark:bg-field3 dark:text-white xl:flex">
       <div>
         <div className="flex items-center gap-3">
           <ImageTag src="basket" width={49} height={38} />

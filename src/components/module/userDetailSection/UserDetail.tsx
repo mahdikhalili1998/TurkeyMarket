@@ -4,14 +4,18 @@ import DetailInput from "./DetailInput";
 
 function UserDetail() {
   return (
-    <div className="dark:bg-dark-bg bg-white px-16 pt-12">
+    <div className="bg-white p-4 dark:bg-dark-bg xl:px-16 xl:pt-12">
       <div className="flex items-center justify-between border-b-2 border-solid border-gray-300 pb-6">
-        <p className="border-r-[3px] border-solid border-main-orange pr-2 pt-2 dark:text-white">
+        <p className="xl: border-r-[3px] border-solid border-main-orange py-2 pr-2 text-xs font-bold dark:text-white xl:pt-2 xl:text-base">
           اطلاعات فرستنده
         </p>
         <button className="flex items-center gap-2 rounded-md bg-main-dark p-2 text-sm">
-          <ImageTag src="book" width={24} height={24} />
-          <span className="text-white dark:bg-main-dark">دفتر آدرس ها</span>
+          <div className="hidden xl:block">
+            <ImageTag src="book" width={24} height={24} />
+          </div>
+          <span className="text-xs font-semibold text-white dark:bg-main-dark xl:text-sm">
+            دفتر آدرس ها
+          </span>
           <ImageTag src="left" width={24} height={24} />
         </button>
       </div>
@@ -19,7 +23,7 @@ function UserDetail() {
         <div>
           <DetailInput />
         </div>
-        <div className="ml-4">
+        <div className="hidden xl:ml-4 xl:block">
           <ImageTag src="detail" width={289} height={357} />
         </div>
       </div>

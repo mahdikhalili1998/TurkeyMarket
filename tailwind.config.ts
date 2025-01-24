@@ -31,6 +31,7 @@ export default {
         field6: "#F6F6F6",
         field3: "#3A3C42",
         field2: "#404248",
+        "input-border": "#D8D8DA",
 
         "primry-White": "#FA5A2A",
       },

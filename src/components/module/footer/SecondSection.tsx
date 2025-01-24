@@ -6,8 +6,8 @@ import Tel from "../../../../public/icon/tel2.svg";
 
 function SecondSection() {
   return (
-    <div className="text-text-color dark:bg-field3 mx-16 mt-16 flex justify-between bg-white dark:text-white">
-      <ul className="flex flex-col items-start gap-2 text-sm dark:text-white">
+    <div className="flex justify-center bg-white text-text-color dark:bg-field3 dark:text-white xl:mx-16 xl:mt-16 xl:justify-between">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex">
         <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange">
           دسترسی سریع
         </li>
@@ -20,7 +20,7 @@ function SecondSection() {
         </li>
         <li className="cursor-pointer hover:text-main-orange"> در باره ما</li>
       </ul>
-      <ul className="flex flex-col items-start gap-2 text-sm dark:text-white">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex">
         <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange">
           لینک های مهم{" "}
         </li>
@@ -29,7 +29,7 @@ function SecondSection() {
         <li className="cursor-pointer hover:text-main-orange">فروشنده شوید</li>
         <li className="cursor-pointer hover:text-main-orange">وبلاگ</li>
       </ul>
-      <ul className="flex flex-col items-start gap-2 text-sm dark:text-white">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex">
         <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange">
           لینک های مهم{" "}
         </li>
@@ -38,7 +38,7 @@ function SecondSection() {
         <li className="cursor-pointer hover:text-main-orange">فروشنده شوید</li>
         <li className="cursor-pointer hover:text-main-orange">وبلاگ</li>
       </ul>
-      <ul className="bg-field6 dark:bg-field2 space-y-3 rounded-lg p-4 dark:text-white">
+      <ul className="space-y-3 mt-3 rounded-lg bg-field6 p-5 px-9 text-xs font-semibold dark:bg-field2 dark:text-white xl:p-4 xl:text-sm">
         <li className="flex items-center gap-2 border-r-2 border-solid border-main-orange pr-2 text-xs">
           <Location className="dark:text-white" stroke="currentColor" />
           {/* <ImageTag src="location" width={20} height={20} /> */}

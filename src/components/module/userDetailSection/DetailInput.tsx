@@ -73,19 +73,19 @@ function DetailInput() {
   };
 
   return (
-    <div className="mb-10 mr-4 space-y-8 text-text-color dark:text-white">
+    <div className="mb-10 space-y-8 text-text-color dark:text-white xl:mr-4">
       {/* بخش اول */}
-      <div className="flex w-[891px] items-center gap-8">
-        <div className={`flex h-[97px] flex-col gap-2 text-sm`}>
-          <label className="font-semibold">نام :</label>
+      <div className="flex flex-col items-start gap-8 xl:w-[891px] xl:flex-row">
+        <div className={`flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]`}>
+          <label className="text-xs font-bold xl:text-base">نام :</label>
           <input
             type="text"
             placeholder="مهدی"
-            className={`${nextStep && userDetail.name === "" ? "border-red-500" : "border-gray-400"} h-[56px] w-[286.5px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400`}
             value={userDetail.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setUserDetail({ ...userDetail, name: e.target.value })
             }
+            className={`${nextStep && userDetail.name === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 xl:h-[56px] xl:w-[286.5px]`}
           />
           <span
             className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} h-1 text-xs text-red-500`}
@@ -93,12 +93,14 @@ function DetailInput() {
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className="flex h-[97px] flex-col gap-2">
-          <label className="font-semibold">نام خانوادگی :</label>
+        <div className="flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]">
+          <label className="text-xs font-bold xl:text-base">
+            نام خانوادگی :
+          </label>
           <input
             type="text"
             placeholder="خلیلی"
-            className={`${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-gray-400"} h-[56px] w-[286.5px] rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 placeholder:text-gray-400`}
+            className={`${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 xl:h-[56px] xl:w-[286.5px]`}
             value={userDetail.lastName}
             onChange={(e) =>
               setUserDetail({ ...userDetail, lastName: e.target.value })
@@ -110,12 +112,12 @@ function DetailInput() {
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className="flex h-[97px] flex-col gap-2">
-          <label className="font-semibold">شماره ملی:</label>
+        <div className="flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]">
+          <label className="text-xs font-bold xl:text-base">شماره ملی : </label>
           <input
             type="text"
             placeholder="271029xxx71"
-            className="h-[56px] w-[256.5px] rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 placeholder:text-gray-400 dark:border-gray-500"
+            className="border-input-border h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-gray-500 xl:h-[56px] xl:w-[256.5px]"
             value={userDetail.nationalId}
             onChange={(e) =>
               setUserDetail({ ...userDetail, nationalId: e.target.value })
@@ -124,11 +126,13 @@ function DetailInput() {
         </div>
       </div>
       {/* بخش دوم */}
-      <div className="flex w-[891px] items-center gap-[24px]">
-        <div className="flex h-[97px] flex-col items-end gap-2 text-sm">
-          <label className="ml-auto font-semibold">آدرس ایمیل :</label>
+      <div className="flex flex-col items-center gap-6 xl:w-[891px] xl:flex-row">
+        <div className="ml-auto flex h-[72px] flex-col gap-2 text-sm xl:h-[97px] xl:items-end">
+          <label className="ml-auto text-xs font-bold xl:text-base">
+            آدرس ایمیل :
+          </label>
           <div
-            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-gray-400"} flex h-[56px] w-[433.5px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2`}
+            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 xl:h-[56px] xl:w-[433.5px]`}
           >
             <input
               type="email"
@@ -149,10 +153,12 @@ function DetailInput() {
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className={"flex h-[97px] flex-col items-end gap-2 text-sm"}>
-          <label className="ml-auto font-semibold">شماره تماس :</label>
+        <div className="ml-auto flex h-[72px] flex-col gap-2 text-sm xl:h-[97px] xl:items-end">
+          <label className="ml-auto text-xs font-bold xl:text-base">
+            شماره تماس :
+          </label>
           <div
-            className={`${nextStep && userDetail.phoneNumber === "" ? "border-red-500" : "border-gray-400"} flex h-[56px] w-[433.5px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2`}
+            className={`${nextStep && userDetail.phoneNumber === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 xl:h-[56px] xl:w-[433.5px]`}
           >
             <input
               placeholder="0912xxxxxxx"
@@ -219,11 +225,11 @@ function DetailInput() {
         </div>
       </div>
       {/* بخش سوم */}
-      <div className="flex w-[891px] items-center gap-9">
-        <div className="relative h-[97px] w-[286.33px] space-y-4 text-sm">
-          <label className="font-semibold">کشور :</label>
+      <div className="flex flex-col items-center gap-9 xl:w-[891px] xl:flex-row">
+        <div className="relative ml-auto h-[72px] w-[343px] space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
+          <label className="text-xs font-bold xl:text-base">کشور :</label>
           <div
-            className="flex h-[56px] cursor-pointer items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500"
+            className="flex h-[48px] cursor-pointer rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500 xl:h-[56px] xl:items-center xl:justify-end"
             onClick={toggleCountryDropdown}
           >
             <div className="flex w-full items-center justify-between">
@@ -266,8 +272,8 @@ function DetailInput() {
             </div>
           )}
         </div>
-        <div className="flex h-[97px] w-[286.33px] flex-col space-y-4 text-sm">
-          <label className="font-semibold">شهر :</label>
+        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
+          <label className="text-xs font-bold xl:text-base">شهر :</label>
           <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
             <div className="flex gap-3">
               <select
@@ -280,12 +286,12 @@ function DetailInput() {
             </div>
           </div>
         </div>
-        <div className="flex h-[97px] w-[286.33px] flex-col space-y-4 text-sm">
-          <label className="font-semibold">کدپستی : </label>
-          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
+        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
+          <label className="text-xs font-bold xl:text-base">کدپستی : </label>
+          <div className="border-input-border flex items-center rounded-md border-2 border-solid bg-transparent dark:border-gray-500">
             <input
               placeholder="4416166400"
-              className="w-[10rem] placeholder:pl-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg"
+              className="h-[48px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:w-[10rem]"
               value={userDetail.PostalCode}
               onChange={(e) =>
                 setUserDetail({ ...userDetail, PostalCode: e.target.value })
@@ -295,9 +301,9 @@ function DetailInput() {
         </div>
       </div>
       {/* بخش چهارم */}
-      <div className="flex h-[97px] w-[891px] flex-col space-y-4 text-sm">
-        <label className="font-semibold">عنوان آدرس : </label>
-        <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
+      <div className="flex h-[89px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[891px]">
+        <label className="text-xs font-bold">عنوان آدرس : </label>
+        <div className="border-input-border flex h-[56px] items-center rounded-md border-2 border-solid bg-transparent p-2 dark:border-gray-500">
           <input
             type="text"
             placeholder="خانه"
@@ -310,12 +316,12 @@ function DetailInput() {
         </div>
       </div>
       {/* بخش پنجم */}
-      <div className="flex h-[193px] w-[891px] flex-col space-y-4 text-sm">
-        <label className="font-semibold">آدرس کامل : </label>
-        <div className="flex h-[111px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
-          <textarea
+      <div className="flex h-[200px] w-[343px] flex-col space-y-4 text-sm xl:h-[193px] xl:w-[891px]">
+        <label className="text-xs font-bold xl:text-base">آدرس کامل : </label>
+        <div className="border-input-border flex items-center rounded-md border-2 border-solid bg-transparent dark:border-gray-500">
+          <input
             placeholder="آدرس : تهران ، خیابان نلسون ماندلا و ..."
-            className="w-full placeholder:pl-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg"
+            className="h-[148px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:h-[111px] xl:w-[891px]"
             value={userDetail.address}
             onChange={(e) =>
               setUserDetail({ ...userDetail, address: e.target.value })
@@ -336,18 +342,20 @@ function DetailInput() {
           >
             {isChecked ? "✓" : ""}{" "}
           </label>
-          <span className="ml-2 text-sm">در دفتر آدرس ها ذخیره شود</span>
+          <span className="ml-2 text-xs font-bold xl:text-sm">
+            در دفتر آدرس ها ذخیره شود
+          </span>
         </div>
       </div>
       {/* دکمه ها */}
-      <div className="flex items-center justify-end gap-4">
-        <button className="flex h-[48px] w-[128px] items-center rounded-lg bg-bg-gray p-2 text-sm text-text-color dark:bg-main-dark dark:text-gray-400">
+      <div className="flex w-[343] items-center justify-center gap-4 xl:justify-end">
+        <button className="flex h-[48px] w-[164px] items-center rounded-lg bg-bg-gray p-2 text-xs text-text-color dark:bg-main-dark dark:text-gray-400 xl:w-[128px] xl:text-sm">
           <ImageTag src="right" width={24} height={24} />
           <span className="text-gray-300">مرحله قبل</span>
         </button>
         <button
           onClick={nextStepHandler}
-          className="flex h-[48px] w-[128px] items-center justify-center rounded-lg bg-main-orange p-2 text-sm text-white"
+          className="flex h-[48px] w-[164px] items-center justify-center rounded-lg bg-main-orange p-2 text-xs text-white xl:w-[128px] xl:text-sm"
         >
           <span className="text-white">مرحله بعد</span>
           <ImageTag src="left" width={24} height={24} />

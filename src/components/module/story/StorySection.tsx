@@ -49,27 +49,37 @@ function StorySection() {
   const currentStory = currentIndex !== null ? data[currentIndex] : null;
 
   return (
-    <div className="bg-field6 dark:bg-darkMoodBg relative mb-7 border-t-[1px] border-solid border-gray-400 py-8">
+    <div className="relative mb-7 border-t-[1px] border-solid border-gray-400 bg-field6 py-8 dark:bg-darkMoodBg">
       <Swiper
-        slidesPerView={11}
-        spaceBetween={15}
+        slidesPerView={10}
+        spaceBetween={5}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper h-[74px] w-[334px]"
+        breakpoints={{
+          375: {
+            slidesPerView: 5, // در عرض 375 پیکسل، 5 اسلاید نمایش داده شود
+            spaceBetween: 5, // فاصله بین اسلایدها (به صورت دلخواه تنظیم کنید)
+          },
+          768: {
+            slidesPerView: 7, // مثال: در عرض 768 پیکسل، 7 اسلاید نمایش داده شود
+            spaceBetween: 10,
+          },
+        }}
       >
         {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div
-              className="flex h-[110.26px] w-[84px] cursor-pointer flex-col items-center"
+              className="flex h-[74px] w-[54px] cursor-pointer flex-col items-center"
               onClick={() => seenStoryHandler(index)}
             >
               <Image
                 src={`/image/${item.id}.png`}
                 alt={item.name}
-                width={84}
-                height={84}
-                className="rounded-full border-[3px] border-main-orange dark:border-white"
+                width={50}
+                height={50}
+                className="h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white"
               />
-              <span className="mt-2 text-sm dark:text-white">{item.name}</span>
+              <span className="mt-2 text-xs dark:text-white">{item.name}</span>
             </div>
           </SwiperSlide>
         ))}

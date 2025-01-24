@@ -5,21 +5,32 @@ import { FaAngleLeft } from "react-icons/fa6";
 
 function SendProduct() {
   return (
-    <div className="relative flex h-min items-center bg-main-orange px-12 py-14">
-      <div className="mr-4 text-white">
-        <h2 className="mb-5 text-lg font-bold">ارسال محصول</h2>
-        <p className="text-sm">
+    <div className="relative flex h-min flex-col items-center bg-main-orange pb-4 xl:px-12 xl:py-14">
+      <div className="-mt-8 mr-20 xl:hidden">
+        <Image
+          src="/image/boxesR.png"
+          width={500}
+          height={500}
+          alt="miidle photo"
+          priority
+          className="h-[219px] w-[278px] grayscale"
+        />
+      </div>
+      {/* متن */}
+      <div className="flex w-[341px] flex-col gap-3 text-white xl:ml-auto xl:mr-5">
+        <h2 className="text-xs font-bold xl:text-2xl">ارسال محصول</h2>
+        <p className="text-xs font-semibold xl:w-[570px] xl:text-base">
           پست سریع بین المللی Ran Express ایران با بیش از 40 سال تجربه،
-          مجموعه‌ای کامل از <br />
-          خدمات ارسال سریع و مطمئن را به سراسر جهان ارائه می‌دهد.
+          مجموعه‌ای کامل از خدمات ارسال سریع و مطمئن را به سراسر جهان ارائه
+          می‌دهد.
         </p>
-        <button className="mt-5 flex items-center gap-2 rounded-lg bg-white p-3 text-sm font-semibold text-main-orange">
+        <button className="ml-auto flex items-center gap-3 rounded-lg bg-white px-3 py-[17px] text-sm font-semibold text-main-orange">
           <ImageTag src="calculater" width={24} height={24} />
-          <span> بررسی بر آورد هزینه </span>
+          <span className="text-xs font-bold"> بررسی بر آورد هزینه </span>
           <FaAngleLeft className="text-main-orange" />
         </button>
       </div>
-      <div className="absolute left-6 mr-auto sm:-top-8">
+      <div className="absolute left-6 mr-auto hidden sm:-top-8 xl:block">
         <Image
           src="/image/boxes.png"
           width={500}
