@@ -7,7 +7,7 @@ function UserDetail() {
     <div className="bg-white p-4 dark:bg-dark-bg xl:px-16 xl:pt-12">
       {/* اطلاعات فرستنده و دفتر آدرس ها */}
       <div className="flex items-center justify-between border-r-[3px] border-solid border-main-orange">
-        <p className="text-xs font-bold dark:text-white xl:px-[10px] xl:text-base">
+        <p className="text-xs font-bold dark:text-white px-[10px] xl:text-base">
           اطلاعات فرستنده
         </p>
         <button className="flex items-center gap-2 rounded-md bg-main-dark p-2 text-sm">
