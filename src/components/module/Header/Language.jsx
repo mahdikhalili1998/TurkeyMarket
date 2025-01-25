@@ -3,7 +3,7 @@ import Iran from "@/components/icon/Iran";
 import TurkyFlag from "@/components/icon/TurkyFlag";
 
 import dynamic from "next/dynamic";
-import { useState, JSX } from "react";
+import { useState } from "react";
 
 // بارگذاری react-select فقط در محیط کلاینت
 const Select = dynamic(() => import("react-select"), { ssr: false });
@@ -34,45 +34,42 @@ const Language = () => {
   });
 
   // مدیریت انتخاب زبان
-  const handleLanguageChange = (selectedOption: any) => {
-    setSelectedLanguage(selectedOption); // به‌روزرسانی زبان
+  const handleLanguageChange = (selectedOption) => {
+    if (selectedOption) {
+      setSelectedLanguage(selectedOption); // به‌روزرسانی زبان
+    }
   };
 
   // مدیریت انتخاب واحد پول
-  const handleCurrencyChange = (selectedOption: any) => {
-    setSelectedCurrency(selectedOption); // به‌روزرسانی واحد پول
+  const handleCurrencyChange = (selectedOption) => {
+    if (selectedOption) {
+      setSelectedCurrency(selectedOption); // به‌روزرسانی واحد پول
+    }
   };
 
   // سفارشی‌سازی نحوه نمایش گزینه‌های زبان
-  const customOptionLabel = (option: {
-    value: string;
-    label: string;
-    icon: JSX.Element;
-  }) => {
+  const customOptionLabel = (data) => {
     return (
       <div className="flex items-center gap-2">
-        <span>{option.icon}</span>
-        <span>{option.label}</span>
+        <span>{data.icon}</span>
+        <span>{data.label}</span>
       </div>
     );
   };
 
   // سفارشی‌سازی نحوه نمایش گزینه‌های واحد پول
-  const customOptionLabelCurrency = (option: {
-    money: string;
-    sign: string;
-  }) => {
+  const customOptionLabelCurrency = (data) => {
     return (
       <div className="flex items-center gap-2">
-        <span>{option.money}</span>
-        <span>({option.sign})</span>
+        <span>{data.money}</span>
+        <span>({data.sign})</span>
       </div>
     );
   };
 
   // استایل‌های سفارشی برای Select
   const customStyles = {
-    control: (provided: any) => ({
+    control: (provided) => ({
       ...provided,
       backgroundColor: "#F6F6F6",
       color: "black",
@@ -80,19 +77,19 @@ const Language = () => {
       padding: "4px",
       border: "1px solid #ddd",
     }),
-    placeholder: (provided: any) => ({
+    placeholder: (provided) => ({
       ...provided,
       color: "gray",
     }),
-    singleValue: (provided: any) => ({
+    singleValue: (provided) => ({
       ...provided,
       color: "black",
     }),
-    menu: (provided: any) => ({
+    menu: (provided) => ({
       ...provided,
       backgroundColor: "#fff",
     }),
-    option: (provided: any, state: any) => ({
+    option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "#E8E8E8" : "#F6F6F6",
       color: "black",
@@ -101,7 +98,7 @@ const Language = () => {
   };
 
   return (
-    <div className="absolute rounded-md bg-white dark:bg-main-dark left-0 xl:-left-20 xl:top-8">
+    <div className="absolute left-0 rounded-md bg-white dark:bg-main-dark xl:-left-20 xl:top-8">
       <div className="flex w-[276px] flex-col gap-2 p-3">
         <label className="text-sm font-semibold">زبان</label>
         <Select
@@ -117,11 +114,7 @@ const Language = () => {
               </div>
             ),
           }}
-          formatOptionLabel={(option) =>
-            customOptionLabel(
-              option as { value: string; label: string; icon: JSX.Element },
-            )
-          }
+          formatOptionLabel={customOptionLabel}
         />
       </div>
       <div className="flex w-[276px] flex-col gap-2 p-3">
@@ -139,9 +132,7 @@ const Language = () => {
               </div>
             ),
           }}
-          formatOptionLabel={(option) =>
-            customOptionLabelCurrency(option as { money: string; sign: string })
-          }
+          formatOptionLabel={customOptionLabelCurrency}
         />
       </div>
     </div>
