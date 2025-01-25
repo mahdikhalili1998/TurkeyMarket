@@ -74,7 +74,7 @@ function StorySection() {
 
       {/* Post Swiper */}
       {selectedStory && (
-        <div className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed -right-[130px] top-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 xl:left-0 xl:top-0">
           <div className="relative w-[80%] max-w-[600px] rounded-lg bg-[#17161699] p-4 shadow-lg dark:bg-darkMoodBg">
             <button
               onClick={closePostSwiper}
