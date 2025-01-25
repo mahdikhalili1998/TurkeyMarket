@@ -6,7 +6,7 @@ function ForthSection() {
   return (
     <div>
       <div className="mt-5 hidden items-center justify-between bg-field3 px-16 py-3 xl:mx-[30px] xl:flex">
-        <p className="text-sm text-white">
+        <p className="text-base text-white">
           تمامی حقوق مادی و معنوی این سایت متعلق به سایت{" "}
           <span className="text-main-orange">ران اکسپرس</span> می باشد.
         </p>

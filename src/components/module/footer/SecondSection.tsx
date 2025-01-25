@@ -7,8 +7,8 @@ import Tel from "../../../../public/icon/tel2.svg";
 function SecondSection() {
   return (
     <div className="flex justify-center bg-white text-text-color dark:bg-field3 dark:text-white xl:mx-[100px] xl:mt-24 xl:justify-between xl:gap-[160px]">
-      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-sm xl:font-semibold">
-        <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange xl:text-sm xl:font-bold">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-base xl:font-semibold">
+        <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange xl:text-base xl:font-bold">
           دسترسی سریع
         </li>
         <li className="cursor-pointer hover:text-main-orange">
@@ -20,8 +20,8 @@ function SecondSection() {
         </li>
         <li className="cursor-pointer hover:text-main-orange"> در باره ما</li>
       </ul>
-      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-sm xl:font-semibold">
-        <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange xl:text-sm xl:font-bold">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-base xl:font-semibold">
+        <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange xl:text-base xl:font-bold">
           لینک های مهم{" "}
         </li>
         <li className="cursor-pointer hover:text-main-orange">صفحه اصلی</li>
@@ -29,7 +29,7 @@ function SecondSection() {
         <li className="cursor-pointer hover:text-main-orange">فروشنده شوید</li>
         <li className="cursor-pointer hover:text-main-orange">وبلاگ</li>
       </ul>
-      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-sm xl:font-semibold">
+      <ul className="hidden flex-col items-start gap-2 text-sm dark:text-white xl:flex xl:text-base xl:font-semibold">
         <li className="cursor-pointer border-r-2 border-solid border-main-orange pr-2 font-semibold hover:text-main-orange xl:font-bold">
           لینک های مهم{" "}
         </li>

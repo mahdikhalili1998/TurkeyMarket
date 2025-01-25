@@ -8,11 +8,11 @@ function ThirdSection() {
       <div className="items-start xl:flex xl:flex-col">
         <div className="flex items-center gap-3">
           <ImageTag src="basket" width={49} height={38} />
-          <span className="text-sm font-semibold">
+          <span className="text-base font-semibold">
             شرکت خدمات حمل و نقل ران اکسپرس
           </span>
         </div>
-        <p className="mt-3 xl:text-xs/5 xl:font-semibold">
+        <p className="mt-3 xl:text-sm/5 xl:font-semibold">
           پست سریع بین المللی تی‌ان‌تی ایران، از سال ۱۹۸۱ فعالیت خود را آغاز
           کرده و با بیش از چهل سال تجربه، به عنوان یکی <br />
           از پیشگامان خدمات پستی در ایران شناخته می‌شود. این شرکت دارای
