@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes storyTimer {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 #app {
   height: 100%;
 }
@@ -67,4 +58,56 @@ body {
   .swiper-slide img {
     height: 70%;
   }
+}
+
+/* Post Swiper Container */
+.postSwiper {
+  width: 90%;
+  height: 80%;
+  margin: 0 auto;
+}
+
+/* Post Swiper Slide */
+.postSwiper-slide {
+  text-align: center;
+  font-size: 16px;
+  background: rgba(23, 22, 22, 0.603);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Post Swiper Images */
+.postSwiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Swiper Navigation Buttons */
+.postSwiper .swiper-button-next,
+.postSwiper .swiper-button-prev {
+  color: #000;
+  opacity: 0.8;
+}
+
+.postSwiper .swiper-button-next:hover,
+.postSwiper .swiper-button-prev:hover {
+  color: #007bff;
+  opacity: 1;
+}
+
+/* Swiper Pagination Dots */
+.postSwiper .swiper-pagination-bullet {
+  background: #000;
+  opacity: 0.6;
+}
+
+.postSwiper .swiper-pagination-bullet-active {
+  background: #007bff;
+  opacity: 1;
 }

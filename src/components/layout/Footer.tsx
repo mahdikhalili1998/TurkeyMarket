@@ -6,7 +6,7 @@ import ForthSection from "../module/footer/ForthSection";
 
 function Footer() {
   return (
-    <div className="dark:bg-field3 bg-white">
+    <div className="bg-white dark:bg-field3 ">
       <FirstSection />
       <SecondSection />
       <ThirdSection />

@@ -4,77 +4,58 @@ import { storyData } from "@/constant/storyData";
 import { IStoryData } from "@/types/data";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Swiper as StorySwiper,
+  SwiperSlide as StorySwiperSlide,
+} from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import {
+  Swiper as PostSwiper,
+  SwiperSlide as PostSwiperSlide,
+} from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 function StorySection() {
   const [data, setData] = useState<IStoryData[]>([]);
-  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
-  const [currentPostIndex, setCurrentPostIndex] = useState<number>(0);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [selectedStory, setSelectedStory] = useState<IStoryData | null>(null);
 
   useEffect(() => {
     setData(storyData);
   }, []);
 
-  const seenStoryHandler = (index: number) => {
-    setCurrentIndex(index);
-    setCurrentPostIndex(0);
+  const seenStoryHandler = (story: IStoryData) => {
+    setSelectedStory(story);
   };
 
-  const closeStoryHandler = () => {
-    setCurrentIndex(null);
-    setCurrentPostIndex(0);
+  const closePostSwiper = () => {
+    setSelectedStory(null);
   };
-
-  const nextPost = () => {
-    if (currentIndex !== null) {
-      const userStories = data[currentIndex]?.post;
-      if (currentPostIndex < userStories.length - 1) {
-        setCurrentPostIndex((prev) => prev + 1);
-      } else {
-        closeStoryHandler();
-      }
-    }
-  };
-
-  const prevPost = () => {
-    if (currentPostIndex > 0) {
-      setCurrentPostIndex((prev) => prev - 1);
-    }
-  };
-
-  const currentStory = currentIndex !== null ? data[currentIndex] : null;
 
   return (
-    <div className="relative mb-7 border-t-[1px] border-solid border-gray-400 bg-field6 py-8 dark:bg-darkMoodBg">
-      <Swiper
+    <div className="relative mb-7 border-t-[1px] border-solid border-[#D8D8DA] bg-field6 py-8 dark:bg-darkMoodBg">
+      {/* Story Swiper */}
+      <StorySwiper
         slidesPerView={11}
         spaceBetween={15}
         modules={[Pagination]}
         className="mySwiper h-[74px] w-[334px]"
         breakpoints={{
-          1024: {
-            slidesPerView: 10, // تعداد اسلایدها برای نمایش‌های بزرگتر از 1024px
-          },
-          768: {
-            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بزرگتر از 768px
-          },
-          480: {
-            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بزرگتر از 480px
-          },
-          320: {
-            slidesPerView: 5, // تعداد اسلایدها برای نمایش‌های بسیار کوچک (مثل موبایل‌های کوچک)
-          },
+          1024: { slidesPerView: 11 },
+          768: { slidesPerView: 5 },
+          480: { slidesPerView: 5 },
+          320: { slidesPerView: 5 },
         }}
       >
         {data.map((item, index) => (
-          <SwiperSlide key={index}>
+          <StorySwiperSlide key={index}>
             <div
+              onClick={() => seenStoryHandler(item)}
               className="flex h-[74px] w-[54px] cursor-pointer flex-col items-center xl:h-[110px] xl:w-[84px]"
-              onClick={() => seenStoryHandler(index)}
             >
               <Image
                 src={`/image/${item.id}.png`}
@@ -83,95 +64,52 @@ function StorySection() {
                 height={50}
                 className="h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white"
               />
-              <span className="mt-2 text-xs dark:text-white">{item.name}</span>
+              <span className="mt-2 font-semibold dark:text-white xl:text-base">
+                {item.name}
+              </span>
             </div>
-          </SwiperSlide>
+          </StorySwiperSlide>
         ))}
-      </Swiper>
+      </StorySwiper>
 
-      {currentStory && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black bg-opacity-10">
-          <div
-            className="relative w-[200px] rounded-lg bg-gray-800 p-6 xl:w-[840px]"
-            onMouseDown={() => setIsPaused(true)}
-            onMouseUp={() => setIsPaused(false)}
-          >
-            <div className="absolute left-0 top-0 flex w-[200px] gap-1 px-2 xl:w-full">
-              {currentStory.post.map((_, postIndex) => (
-                <div
-                  key={`${currentIndex}-${postIndex}`}
-                  className={`h-2 flex-1 overflow-hidden rounded bg-gray-500`}
-                >
-                  <div
-                    className={`h-[300px] bg-main-orange xl:h-full ${
-                      postIndex === currentPostIndex ? "visible" : "hidden"
-                    }`}
-                    style={{
-                      animation: `storyTimer 5s linear forwards`,
-                      animationPlayState: isPaused ? "paused" : "running",
-                    }}
-                    onAnimationEnd={nextPost}
-                  ></div>
-                </div>
+      {/* Post Swiper */}
+      {selectedStory && (
+        <div className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50">
+          <div className="relative w-[80%] max-w-[600px] rounded-lg bg-[#17161699] p-4 shadow-lg dark:bg-darkMoodBg">
+            <button
+              onClick={closePostSwiper}
+              className="absolute right-2 top-2 text-gray-500 hover:text-red-500"
+            >
+              ✖
+            </button>
+            <PostSwiper
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              navigation={true}
+              pagination={{ clickable: true }}
+              autoplay={{
+                delay: 3000, // مدت زمان توقف هر اسلاید (بر حسب میلی‌ثانیه)
+                disableOnInteraction: false, // در صورت تعامل کاربر، autoplay متوقف نمی‌شود
+              }}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="postSwiper"
+            >
+              {selectedStory.post.map((post) => (
+                <PostSwiperSlide key={post.id} className="postSwiper-slide">
+                  <Image
+                    src={post.src}
+                    alt={`Post ${post.id}`}
+                    width={600}
+                    height={400}
+                    className="h-auto w-full rounded-lg"
+                  />
+                </PostSwiperSlide>
               ))}
-            </div>
-
-            <button
-              className="absolute right-4 top-4 text-3xl text-white"
-              onClick={closeStoryHandler}
-            >
-              &times;
-            </button>
-
-            <button
-              className={`absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-white ${
-                currentPostIndex === 0 ? "hidden" : ""
-              }`}
-              onClick={prevPost}
-            >
-              &#8592;
-            </button>
-            <button
-              className={`absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-white ${
-                currentPostIndex === currentStory.post.length - 1
-                  ? "hidden"
-                  : ""
-              }`}
-              onClick={nextPost}
-            >
-              &#8594;
-            </button>
-
-            <div
-              // style={{
-              //   width: "600px",
-              //   height: "600px",
-              //   overflow: "hidden",
-              // }}
-              className="mx-auto h-[300px] w-[500px] overflow-hidden rounded-md xl:h-[600px] xl:w-[600px]"
-            >
-              <Image
-                src={currentStory.post[currentPostIndex].src}
-                width={600}
-                height={600}
-                alt={`Story ${currentPostIndex + 1}`}
-                className="h-auto w-[200px] object-cover xl:h-full xl:w-full"
-              />
-            </div>
+            </PostSwiper>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes storyTimer {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

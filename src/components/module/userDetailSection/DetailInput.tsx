@@ -103,7 +103,7 @@ function DetailInput() {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setUserDetail({ ...userDetail, name: e.target.value })
             }
-            className={`${nextStep && userDetail.name === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 xl:h-[56px] xl:w-[286.5px]`}
+            className={`${nextStep && userDetail.name === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[286.5px]`}
           />
           <span
             className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} h-1 text-xs text-red-500`}
@@ -118,7 +118,7 @@ function DetailInput() {
           <input
             type="text"
             placeholder="خلیلی"
-            className={`${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 xl:h-[56px] xl:w-[286.5px]`}
+            className={`${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[286.5px]`}
             value={userDetail.lastName}
             onChange={(e) =>
               setUserDetail({ ...userDetail, lastName: e.target.value })
@@ -135,7 +135,7 @@ function DetailInput() {
           <input
             type="text"
             placeholder="271029xxx71"
-            className="border-input-border h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-gray-500 xl:h-[56px] xl:w-[256.5px]"
+            className="h-[48px] w-[343px] rounded-md border-2 border-solid border-input-border bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[256.5px]"
             value={userDetail.nationalId}
             onChange={(e) =>
               setUserDetail({ ...userDetail, nationalId: e.target.value })
@@ -150,7 +150,7 @@ function DetailInput() {
             آدرس ایمیل :
           </label>
           <div
-            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 xl:h-[56px] xl:w-[433.5px]`}
+            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark xl:h-[56px] xl:w-[433.5px]`}
           >
             <input
               type="email"
@@ -176,12 +176,12 @@ function DetailInput() {
             شماره تماس :
           </label>
           <div
-            className={`${nextStep && userDetail.phoneNumber === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 xl:h-[56px] xl:w-[433.5px]`}
+            className={`${nextStep && userDetail.phoneNumber === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid bg-transparent p-2 dark:border-main-dark dark:bg-dark-bg xl:h-[56px] xl:w-[433.5px]`}
           >
             <input
               placeholder="0912xxxxxxx"
               type="text"
-              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg dark:text-white`}
+              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left focus:outline-none dark:bg-transparent`}
               value={userDetail.phoneNumber}
               onChange={(e) =>
                 setUserDetail({ ...userDetail, phoneNumber: e.target.value })
@@ -190,7 +190,7 @@ function DetailInput() {
 
             <div className="relative">
               <div
-                className="flex cursor-pointer items-center gap-1 border-r-2 border-solid border-gray-300 pr-2"
+                className="flex cursor-pointer items-center gap-1 border-r-2 border-solid border-gray-300 pr-2 dark:border-main-dark"
                 onClick={togglePhoneDropdown}
               >
                 <span>{selectedPhoneCode.code}</span>
@@ -247,7 +247,7 @@ function DetailInput() {
         <div className="relative ml-auto h-[72px] w-[343px] space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
           <label className="text-xs font-bold xl:text-base">کشور :</label>
           <div
-            className="flex h-[48px] cursor-pointer rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500 xl:h-[56px] xl:items-center xl:justify-end"
+            className="flex h-[48px] cursor-pointer rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark xl:h-[56px] xl:items-center xl:justify-end"
             onClick={toggleCountryDropdown}
           >
             <div className="flex w-full items-center justify-between">
@@ -307,7 +307,7 @@ function DetailInput() {
         </div> */}
         <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
           <label className="text-xs font-bold xl:text-base">شهر :</label>
-          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
+          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark">
             <div className="flex gap-3">
               <select
                 value={selectedCity} // تنظیم مقدار انتخابی شهر
@@ -327,7 +327,7 @@ function DetailInput() {
 
         <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
           <label className="text-xs font-bold xl:text-base">کدپستی : </label>
-          <div className="border-input-border flex items-center rounded-md border-2 border-solid bg-transparent dark:border-gray-500">
+          <div className="flex items-center rounded-md border-2 border-solid border-input-border bg-transparent dark:border-main-dark">
             <input
               placeholder="4416166400"
               className="h-[48px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:w-[10rem]"
@@ -342,7 +342,7 @@ function DetailInput() {
       {/* بخش چهارم */}
       <div className="flex h-[89px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[891px]">
         <label className="text-xs font-bold">عنوان آدرس : </label>
-        <div className="border-input-border flex h-[56px] items-center rounded-md border-2 border-solid bg-transparent p-2 dark:border-gray-500">
+        <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-input-border bg-transparent p-2 dark:border-main-dark">
           <input
             type="text"
             placeholder="خانه"
@@ -357,7 +357,7 @@ function DetailInput() {
       {/* بخش پنجم */}
       <div className="flex h-[200px] w-[343px] flex-col space-y-4 text-sm xl:h-[193px] xl:w-[891px]">
         <label className="text-xs font-bold xl:text-base">آدرس کامل : </label>
-        <div className="border-input-border flex items-center rounded-md border-2 border-solid bg-transparent dark:border-gray-500">
+        <div className="flex items-center rounded-md border-2 border-solid border-input-border bg-transparent dark:border-main-dark">
           <input
             placeholder="آدرس : تهران ، خیابان نلسون ماندلا و ..."
             className="h-[148px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:h-[111px] xl:w-[891px]"

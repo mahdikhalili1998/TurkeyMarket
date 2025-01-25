@@ -23,37 +23,41 @@ function SecondSection() {
   }, [darkMode]);
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="flex items-center justify-around gap-4 bg-white text-sm dark:bg-dark-bg xl:w-full xl:justify-between xl:gap-4 xl:px-16">
-        <div className="flex items-center gap-2">
+    <div className="flex w-full flex-col items-center gap-3 pb-4 xl:px-[100px] xl:py-4">
+      <div className="flex items-center justify-around gap-4 bg-white text-sm dark:bg-dark-bg xl:w-full xl:justify-between xl:gap-4">
+        {/* بسکت و منو */}
+        <div className="flex items-center gap-2 xl:gap-4">
           <div className="hidden xl:block">
             <Basket height={38} width={49} />
           </div>
-          <div className="rounded-md bg-field6 p-3 xl:hidden">
+          {/* برای موبایل */}
+          <div className="rounded-md bg-field6 p-3 dark:bg-main-dark xl:hidden">
             <Menu2 />
           </div>
+          {/* برای موبایل */}
           <div className="xl:hidden">
             <Basket height={31} width={40} />
           </div>
-          <div className="xl:hidden">
-            <BazarTurky />
+          {/* برای موبایل */}
+          <div className="dark:text-white xl:hidden">
+            <BazarTurky width={125} height={15} stroke="currentColor" />
           </div>
           <div className="hidden rounded-md bg-field6 p-2 dark:bg-main-dark xl:block">
             <Menu3 />
           </div>
         </div>
         {/* سرچ باکس */}
-        <div className="hidden w-2/3 rounded-lg bg-field6 p-3 dark:bg-main-dark xl:flex xl:gap-2">
+        <div className="hidden w-2/3 rounded-lg bg-field6 p-3 dark:bg-main-dark xl:flex xl:gap-[10px]">
           <ImageTag src="search" width={24} height={24} />
           <input
             placeholder="کالای  خود را جستجو کنید "
-            className="bg-transparent focus:outline-none dark:text-white placeholder:dark:text-white"
+            className="bg-transparent font-normal placeholder:text-sm placeholder:text-text-color focus:outline-none dark:text-white placeholder:dark:text-white"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
         {/* ماه و زنگوله و منو */}
-        <div className="flex items-center gap-2 xl:gap-4">
+        <div className="flex items-center gap-2 dark:bg-dark-bg xl:gap-4">
           <div className="hidden text-[#4D4D4D] hover:text-main-orange dark:text-white dark:hover:text-main-orange xl:block">
             <Bell stroke="currentColor" width={24} height={24} />
           </div>
@@ -63,14 +67,17 @@ function SecondSection() {
           {/* <ImageTag src="bell" width={24} height={24} /> */}
           <span
             onClick={() => setDarkMode(!darkMode)}
-            className="flex items-center border-l-2 border-r-2 border-solid border-gray-300 px-2 xl:px-4"
+            className="border-strokColor flex items-center border-l-[1px] border-r-[1px] border-solid px-2 xl:px-4"
           >
             {darkMode ? (
-              <Sun
-                className="text-[#4D4D4D] hover:text-main-orange dark:text-white dark:hover:text-main-orange"
-                stroke="currentColor"
-                fill="currentColor"
-              />
+              <div>
+                <div className="text-white hover:text-main-orange dark:hover:text-main-orange xl:hidden">
+                  <Sun height={20} width={20} stroke="currentColor" />
+                </div>
+                <div className="hidden text-white hover:text-main-orange dark:hover:text-main-orange xl:block">
+                  <Sun height={31} width={30} stroke="currentColor" />
+                </div>
+              </div>
             ) : (
               <div>
                 <div className="text-[#4D4D4D] hover:text-main-orange dark:hover:text-main-orange xl:hidden">
@@ -87,11 +94,11 @@ function SecondSection() {
           </div>
           {/* دکمه های عضویت/ورود */}
           <div className="hidden gap-2 xl:flex xl:items-center">
-            <button className="flex items-center justify-center gap-1 rounded-lg bg-main-orange p-2 px-6 text-white">
+            <button className="flex items-center justify-center gap-[6px] rounded-md bg-main-orange px-1 py-2 font-semibold text-white xl:text-sm">
               <ImageTag src="logIn" width={24} height={24} />
               <span>ورود</span>
             </button>
-            <button className="flex items-center justify-center gap-1 rounded-lg border-2 border-solid border-main-orange p-2 px-4 text-main-orange">
+            <button className="flex items-center justify-center gap-[6px] rounded-md border-2 border-solid border-main-orange p-2 font-semibold text-main-orange xl:text-sm">
               <ImageTag src="user" width={24} height={24} />
               <span> عضویت</span>
             </button>

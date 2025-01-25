@@ -9,15 +9,6 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        storyTimer: {
-          from: { width: "0%" },
-          to: { width: "100%" },
-        },
-      },
-      animation: {
-        storyTimer: "storyTimer 5s linear forwards",
-      },
       fontFamily: {
         fontiran: ["Yekan Bakh FaNum"],
       },
@@ -26,13 +17,15 @@ export default {
         "main-dark": "#383A40",
         darkMoodBg: "#212121",
         "dark-bg": "#25272c",
+        "dark-bg2": "#212121",
         "text-color": "#4D4D4D",
+
         "bg-gray": "#F6F6F6",
         field6: "#F6F6F6",
         field3: "#3A3C42",
         field2: "#404248",
         "input-border": "#D8D8DA",
-
+        strokColor: "#B5B5B5",
         "primry-White": "#FA5A2A",
       },
     },
