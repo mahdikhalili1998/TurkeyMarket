@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="dark" lang="fa" dir="rtl">
-      <body className="font-fontiran">
+      <body className="max-w-[1500px] mx-auto font-fontiran">
         <Layout>{children}</Layout>
       </body>
     </html>
