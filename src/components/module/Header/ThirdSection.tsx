@@ -65,17 +65,14 @@ function ThirdSection() {
                 {/* کالای خورده */}
                 <li
                   onMouseEnter={() => handleHover(true, "khorde")}
-                  onMouseLeave={() => {
-                    setOptionHover(false);
-                  }}
-                  className="custom-parent flex cursor-pointer items-center text-text-color hover:text-red-500 dark:text-white xl:gap-[11px] xl:px-3"
+                  className="custom-parent flex cursor-pointer items-center text-text-color xl:gap-[11px] xl:px-3"
                 >
                   {/* آیکون */}
                   <span className="custom-child text-text-color dark:text-white">
                     <KalaKhorde width={20} height={20} stroke="currentColor" />
                   </span>
                   <span className="custom-child text-sm font-semibold text-text-color dark:text-white">
-                    کالای خرده
+                    کالای خورده
                   </span>
                   <span className="custom-child text-text-color dark:text-white">
                     {optionName === "khorde" && optionHover ? (
