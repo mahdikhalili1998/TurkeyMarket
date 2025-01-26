@@ -39,7 +39,7 @@ function SendProduct() {
           </button>
         </div>
         {/* بک گراند چارخونه */}
-        <div className="absolute -top-28 right-4 hidden xl:block">
+        <div className="absolute -top-[35rem] -right-10 hidden xl:block">
           <BackGroundProduct width={975} height={669} />
         </div>
       </div>

@@ -67,7 +67,7 @@ function SecondSection() {
           {/* <ImageTag src="bell" width={24} height={24} /> */}
           <span
             onClick={() => setDarkMode(!darkMode)}
-            className="border-strokColor flex items-center border-l-[1px] border-r-[1px] border-solid px-2 xl:px-4"
+            className="flex items-center border-l-[1px] border-r-[1px] border-solid border-strokColor px-2 xl:px-4"
           >
             {darkMode ? (
               <div>
@@ -94,11 +94,11 @@ function SecondSection() {
           </div>
           {/* دکمه های عضویت/ورود */}
           <div className="hidden gap-2 xl:flex xl:items-center">
-            <button className="flex items-center justify-center gap-[6px] rounded-md bg-main-orange px-1 py-2 font-semibold text-white xl:text-sm">
+            <button className="flex items-center justify-center gap-[6px] rounded-md bg-main-orange px-2 font-semibold text-white xl:h-[47px] xl:text-sm">
               <ImageTag src="logIn" width={24} height={24} />
               <span>ورود</span>
             </button>
-            <button className="flex items-center justify-center gap-[6px] rounded-md border-2 border-solid border-main-orange p-2 font-semibold text-main-orange xl:text-sm">
+            <button className="flex items-center justify-center gap-[6px] rounded-md border-2 border-solid border-main-orange px-2 font-semibold text-main-orange xl:h-[47px] xl:text-sm">
               <ImageTag src="user" width={24} height={24} />
               <span> عضویت</span>
             </button>

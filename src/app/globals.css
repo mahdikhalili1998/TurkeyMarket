@@ -63,7 +63,7 @@ body {
 /* Post Swiper Container */
 .postSwiper {
   width: 90%;
-  height: 80%;
+  height: 75%;
   margin: 0 auto;
 }
 
@@ -125,4 +125,8 @@ body {
   .swiper-slide img {
     height: 100%;
   }
+}
+
+.custom-parent:hover .custom-child {
+  color: #fa5a2a;
 }
