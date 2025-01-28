@@ -41,7 +41,7 @@ function DetailInput() {
   };
 
   return (
-    <div className="mb-10 gap-3 text-text-color dark:text-white xl:mr-4 xl:flex xl:w-[891px] xl:flex-col xl:gap-6">
+    <div className="500:w-full mb-10 gap-3 text-text-color dark:text-white xl:mr-4 xl:flex xl:w-[891px] xl:flex-col xl:gap-6">
       {/* بخش اول */}
       <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between xl:gap-4">
         {/* نام */}
@@ -181,7 +181,7 @@ function DetailInput() {
         />
       </div>
       {/*  بخش پنجم  آدرس کامل*/}
-      <div className="mt-3 flex w-[343px] flex-col items-start gap-[17px] text-sm xl:w-[891px]">
+      <div className="mt-3 flex 500:w-full w-[343px] flex-col items-start gap-[17px] text-sm xl:w-[891px]">
         <label htmlFor="fullAddres" className="text-xs font-bold xl:text-base">
           آدرس کامل :{" "}
         </label>

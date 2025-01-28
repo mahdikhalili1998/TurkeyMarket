@@ -28,6 +28,7 @@ export default {
         strokColor: "#B5B5B5",
         "primry-White": "#FA5A2A",
       },
+      screens: { "500": "500px" },
     },
   },
   plugins: [],

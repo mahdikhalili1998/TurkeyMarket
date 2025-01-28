@@ -24,7 +24,7 @@ function SecondSection() {
 
   return (
     <div className="flex w-full flex-col items-center gap-3 pb-4 xl:px-[100px] xl:py-4">
-      <div className="flex items-center justify-around gap-4 bg-white text-sm dark:bg-dark-bg xl:w-full xl:justify-between xl:gap-4">
+      <div className="500:w-full flex items-center justify-around gap-4 bg-white text-sm dark:bg-dark-bg xl:w-full xl:justify-between xl:gap-4">
         {/* بسکت و منو */}
         <div className="flex items-center gap-2 xl:gap-4">
           <div className="hidden xl:block">
@@ -106,7 +106,7 @@ function SecondSection() {
         </div>
       </div>
       {/* سرچ باکس ریسپانسیو */}
-      <div className="flex w-[335px] gap-3 rounded-lg bg-field6 p-3 dark:bg-main-dark xl:hidden">
+      <div className="500:w-[26rem] 500:mx-[100px] flex w-[21rem] gap-3 rounded-lg bg-field6 p-3 dark:bg-main-dark xl:hidden">
         <ImageTag src="search" width={24} height={24} />
         <input
           placeholder="کالای  خود را جستجو کنید "

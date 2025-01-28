@@ -58,7 +58,7 @@ function StorySection() {
   };
 
   return (
-    <div className="relative mb-7 border-t-[1px] border-solid border-[#D8D8DA] bg-field6 py-8 dark:bg-darkMoodBg">
+    <div className="relative mb-7 overflow-x-hidden border-t-[1px] border-solid border-[#D8D8DA] bg-field6 py-8 dark:bg-darkMoodBg">
       {/* Story Swiper */}
       <StorySwiper
         slidesPerView={11}
@@ -68,7 +68,7 @@ function StorySection() {
         breakpoints={{
           1024: { slidesPerView: 11 },
           768: { slidesPerView: 5 },
-          480: { slidesPerView: 5 },
+          500: { slidesPerView: 10, spaceBetween: 2 },
           320: { slidesPerView: 5 },
         }}
       >
@@ -83,9 +83,9 @@ function StorySection() {
                 alt={item.name}
                 width={50}
                 height={50}
-                className="h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white"
+                className="500:h-[90px] 500:w-[90px] h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white"
               />
-              <span className="mt-2 font-semibold dark:text-white xl:text-base">
+              <span className="500:text-sm mt-2 font-semibold dark:text-white xl:text-base">
                 {item.name}
               </span>
             </div>

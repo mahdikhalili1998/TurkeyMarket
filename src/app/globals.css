@@ -5,6 +5,10 @@
 #app {
   height: 100%;
 }
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
 html,
 body {
   position: relative;
@@ -13,11 +17,8 @@ body {
 
 body {
   background: #eee;
-  font-family:
-    Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
+
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی */
   font-size: 14px;
   color: #000;
   margin: 0;
@@ -48,6 +49,20 @@ body {
 @media (max-width: 480px) {
   .swiper {
     width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    font-size: 12px; /* اندازه فونت کوچکتر */
+  }
+
+  .swiper-slide img {
+    height: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .swiper {
+    width: 70%;
     height: auto;
   }
 
