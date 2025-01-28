@@ -62,7 +62,7 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 space-y-4 overflow-hidden rounded-lg bg-white shadow-lg dark:bg-darkMoodBg xl:w-40 xl:p-3"
+            className="absolute left-3 top-14 space-y-4 overflow-hidden rounded-lg bg-white shadow-lg  dark:bg-darkMoodBg w-40 z-10 p-3"
           >
             <div
               className="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 max-h-32 overflow-y-auto"

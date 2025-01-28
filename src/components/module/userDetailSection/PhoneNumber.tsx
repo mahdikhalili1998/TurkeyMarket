@@ -26,12 +26,12 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
   }, []);
 
   return (
-    <div className="xl:-w-[434px] w-full flex flex-col items-start gap-2 text-xs xl:gap-[17px]">
+    <div className="xl:-w-[434px] flex w-full flex-col items-start gap-2 text-xs xl:gap-[17px]">
       <label className="font-bold xl:text-base" htmlFor="phoneNumber">
         شماره تماس:
       </label>
       <div
-        className={`${nextStep && userPhoneNumber === "" ? "border-red-500" : "border-border-color dark:border-main-dark"} relative flex items-center rounded-lg border-[1px] border-solid w-full border-border-color xl:w-[434px] xl:gap-2 px-4 py-[17px]`}
+        className={`${nextStep && userPhoneNumber === "" ? "border-red-500" : "border-border-color dark:border-main-dark"} relative flex w-full items-center rounded-lg border-[1px] border-solid border-border-color px-4 py-[17px] xl:w-[434px] xl:gap-2`}
       >
         <input
           type="text"
@@ -44,7 +44,7 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
           }
           id="phoneNumber"
           placeholder="0912xxx2121"
-          className="w-full placeholder:pl-2 text-left text-sm font-normal placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-transparent"
+          className="w-full text-left text-sm font-normal placeholder:pl-2 placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-transparent"
         />
         <div
           onClick={() => setOpenModal((prev) => !prev)}
@@ -58,7 +58,7 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 space-y-4 overflow-hidden rounded-lg bg-white shadow-lg dark:bg-darkMoodBg xl:w-40 xl:p-3"
+            className="absolute left-3 top-14 w-40 space-y-4 overflow-hidden rounded-lg bg-white z-10 p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
               className="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 max-h-32 overflow-y-auto"
