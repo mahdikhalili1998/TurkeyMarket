@@ -44,7 +44,7 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
       <label className="font-bold xl:text-base" htmlFor="country">
         کشور :
       </label>
-      <div className="relative flex w-full items-center rounded-lg border-[1px] border-solid border-border-color px-4 py-[17px]">
+      <div className="relative flex w-full items-center rounded-lg border-[1px] border-solid border-border-color px-4 py-[17px] dark:border-main-dark">
         <input
           type="text"
           value={userCountry}
@@ -62,7 +62,7 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 space-y-4 overflow-hidden rounded-lg bg-white shadow-lg  dark:bg-darkMoodBg w-40 z-10 p-3"
+            className="absolute left-3 top-14 z-10 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
               className="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 max-h-32 overflow-y-auto"

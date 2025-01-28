@@ -1,7 +1,7 @@
 import { IIcon } from "@/types/icon";
 import React from "react";
 
-function FooterTopArrow({ width, height }: IIcon) {
+function FooterTopArrow({ width, height, stroke }: IIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,14 +13,14 @@ function FooterTopArrow({ width, height }: IIcon) {
       <path
         opacity="0.4"
         d="M14.6563 5.3125L14.6562 24.0625"
-        stroke="#FA5A2A"
+        stroke={stroke}
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M7.12625 12.875L14.6563 5.3125L22.1875 12.875"
-        stroke="#FA5A2A"
+        stroke={stroke}
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"

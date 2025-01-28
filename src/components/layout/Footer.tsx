@@ -7,9 +7,9 @@ import FifthSection from "../module/footer/FifthSection";
 
 function Footer() {
   return (
-    <div className="bg-white dark:bg-field3">
+    <div className="bg-white dark:bg-[#3A3C42]">
       <FirstSection />
-      <div className="mx-[20px] -mt-6 xl:-mt-10 space-y-[30px] xl:mx-[100px]">
+      <div className="mx-[20px] -mt-6 space-y-[30px] xl:mx-[100px] xl:-mt-10">
         <SecondSection />
         <ThirdSection />
         <ForthSection />

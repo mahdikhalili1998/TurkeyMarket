@@ -42,7 +42,7 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
       <label className="font-bold xl:text-base" htmlFor="city">
         شهر :
       </label>
-      <div className="relative flex w-full items-center rounded-lg border-[1px] border-solid border-border-color px-4 py-[17px] xl:w-[254px]">
+      <div className="relative flex w-full items-center rounded-lg border-[1px] border-solid border-border-color px-4 py-[17px] dark:border-main-dark xl:w-[254px]">
         <input
           type="text"
           value={userCity}
@@ -62,17 +62,19 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 space-y-4 overflow-hidden rounded-lg bg-white shadow-lg dark:bg-darkMoodBg w-40 p-3"
+            className="absolute left-3 top-14 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
-              className="scrollbar-hidden max-h-32 overflow-y-auto"
+              className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch", // برای فعال‌سازی اسکرول لمسی
+                WebkitOverflowScrolling: "touch",
+                touchAction: "pan-y", // برای فعال‌سازی اسکرول عمودی
+                pointerEvents: "auto", // برای اجازه تعامل
               }}
             >
               {noResults ? (
                 <div className="p-2 text-center text-sm text-gray-500 dark:text-white">
-                  کشوری یافت نشد
+                  شهری یافت نشد
                 </div>
               ) : (
                 filteredCity.map((item, index) => (

@@ -1,4 +1,3 @@
-
 import Email from "@/components/icon/Email";
 import FooterTel from "@/components/icon/FooterTel";
 import Location from "@/components/icon/Location";
@@ -7,7 +6,7 @@ import React from "react";
 function ThirdSection() {
   return (
     <div className="hidden items-center justify-between gap-[160px] xl:flex">
-      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold dark:text-white xl:text-base">
         <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
           لینک های مهم
         </li>
@@ -16,7 +15,7 @@ function ThirdSection() {
         <li className="hover:text-main-orange">قوانین و مقررات</li>
         <li className="hover:text-main-orange">درباره ما</li>
       </ul>
-      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold dark:text-white xl:text-base">
         <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
           لینک های مهم
         </li>
@@ -25,7 +24,7 @@ function ThirdSection() {
         <li className="hover:text-main-orange">قوانین و مقررات</li>
         <li className="hover:text-main-orange">درباره ما</li>
       </ul>
-      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold dark:text-white xl:text-base">
         <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
           لینک های مهم
         </li>
@@ -35,7 +34,7 @@ function ThirdSection() {
         <li className="hover:text-main-orange">درباره ما</li>
       </ul>
       {/* ادرس و واتس آپ و ساعت کاری */}
-      <ul className="flex flex-col gap-5 rounded-md bg-field6 p-4 font-semibold text-text-color xl:text-sm">
+      <ul className="flex flex-col gap-5 rounded-md bg-field6 p-4 font-semibold text-text-color dark:bg-field2 dark:text-white xl:text-sm">
         <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-main-orange px-[10px] font-bold">
           <Location width={20} height={21} stroke="currentColor" />
           <span>آدرس: تهران، خیابان نلسون ماندلا (جردن سابق)</span>

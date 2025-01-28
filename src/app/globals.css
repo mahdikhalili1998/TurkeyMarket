@@ -131,7 +131,11 @@ body {
   color: #fa5a2a;
 }
 
-/* مخفی کردن نوار اسکرول در مرورگرهای Webkit (مثل Chrome و Safari) */
-::-webkit-scrollbar {
-  display: none; /* این باعث مخفی شدن نوار اسکرول می‌شود */
+.scrollbar-hidden {
+  overflow-y: auto; /* فعال کردن اسکرول عمودی */
+  -webkit-overflow-scrolling: touch; /* برای فعال کردن اسکرول لمسی */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* پنهان کردن اسکرول‌بار */
 }
