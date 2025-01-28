@@ -85,7 +85,7 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
         )}
       </div>
       <span
-        className={`${nextStep && userPhoneNumber === "" ? "block" : "hidden"} -mt-3 ml-auto h-1 text-xs font-semibold text-red-500`}
+        className={`${nextStep && userPhoneNumber === "" ? "block" : "hidden"} xl:-mt-3 -mt-1 mb-2 ml-auto h-1 text-xs font-semibold text-red-500`}
       >
         پر کردن این فیلد اجباری است
       </span>

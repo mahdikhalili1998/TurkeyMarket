@@ -62,7 +62,7 @@ function DetailInput() {
             <DownArrow height={24} width={24} stroke="currentColor" />
           </div>
           <span
-            className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} -mt-3 h-1 text-xs font-semibold text-red-500`}
+            className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} -mt-1 mb-2 h-1 text-xs font-semibold text-red-500 xl:-mt-3`}
           >
             پر کردن این فیلد اجباری است
           </span>
@@ -87,7 +87,7 @@ function DetailInput() {
             <DownArrow height={24} width={24} stroke="currentColor" />
           </div>
           <span
-            className={`${nextStep && userDetail.lastName === "" ? "block" : "hidden"} -mt-3 h-1 text-xs font-semibold text-red-500`}
+            className={`${nextStep && userDetail.lastName === "" ? "block" : "hidden"} -mt-1 mb-2 h-1 text-xs font-semibold text-red-500 xl:-mt-3`}
           >
             پر کردن این فیلد اجباری است
           </span>
@@ -128,7 +128,7 @@ function DetailInput() {
             </div>
           </div>
           <span
-            className={`${nextStep && userDetail.email === "" ? "block" : "hidden"} -mt-3 ml-auto h-1 text-xs font-semibold text-red-500`}
+            className={`${nextStep && userDetail.email === "" ? "block" : "hidden"} -mt-1 mb-2 ml-auto h-1 text-xs font-semibold text-red-500 xl:-mt-3`}
           >
             پر کردن این فیلد اجباری است
           </span>
