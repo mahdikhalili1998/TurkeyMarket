@@ -65,9 +65,10 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
             className="absolute left-3 top-14 z-10 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
-              className="scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 max-h-32 overflow-y-auto"
+              className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch", // برای فعال‌سازی اسکرول لمسی
+                WebkitOverflowScrolling: "touch", // فعال‌سازی اسکرول لمسی
+                touchAction: "pan-y", // فعال کردن اسکرول عمودی
               }}
             >
               {noResults ? (

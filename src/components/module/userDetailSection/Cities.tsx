@@ -62,14 +62,13 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
+            className="absolute left-3 top-14 z-50 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
               className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch",
-                touchAction: "pan-y", // برای فعال‌سازی اسکرول عمودی
-                pointerEvents: "auto", // برای اجازه تعامل
+                WebkitOverflowScrolling: "touch", // فعال‌سازی اسکرول لمسی
+                touchAction: "pan-y", // فعال کردن اسکرول عمودی
               }}
             >
               {noResults ? (

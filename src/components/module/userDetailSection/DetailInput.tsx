@@ -107,7 +107,7 @@ function DetailInput() {
         </div>
       </div>
       {/* بخش دوم */}
-      <div className="mt-3 flex flex-col items-start gap-3 xl:w-[891px] xl:flex-row xl:gap-6">
+      <div className="mt-3 flex flex-col gap-3 xl:w-[891px] xl:flex-row xl:gap-6">
         {/* ایمیل */}
         <div className="flex w-full flex-col items-start gap-2 xl:w-[433.5px] xl:gap-[17px]">
           <label className="text-xs font-bold xl:text-base">آدرس ایمیل :</label>
@@ -117,7 +117,7 @@ function DetailInput() {
             <input
               type="email"
               placeholder="mahdi@gamil.com"
-              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-dark-bg dark:placeholder:text-gray-300`}
+              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-dark-bg dark:placeholder:text-gray-300 xl:w-[433.5px]`}
               value={userDetail.email}
               onChange={(e) =>
                 setUserDetail({ ...userDetail, email: e.target.value })
