@@ -5,7 +5,7 @@ import UserDetail from "../module/userDetailSection/UserDetail";
 
 function HomePage() {
   return (
-    <div className="bg-field6 h-full dark:bg-dark-bg">
+    <div className="h-full bg-field6 dark:bg-darkMoodBg">
       <StorySection />
       <SendProduct />
       <UserDetail />

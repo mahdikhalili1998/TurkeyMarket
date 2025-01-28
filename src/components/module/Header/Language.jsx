@@ -1,6 +1,6 @@
 import DownArrow from "@/components/icon/DownArrow";
 import Iran from "@/components/icon/Iran";
-import TurkyFlag from "@/components/icon/TurkyFlag";
+import TurkyFlag from "@/components/icon/Turky";
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -98,7 +98,7 @@ const Language = () => {
   };
 
   return (
-    <div className="absolute z-40 left-0 rounded-md bg-white dark:bg-main-dark xl:-left-20 xl:top-8">
+    <div className="absolute left-0 z-40 rounded-md bg-white dark:bg-main-dark xl:-left-20 xl:top-8">
       <div className="flex w-[276px] flex-col gap-2 p-3">
         <label className="text-sm font-semibold">زبان</label>
         <Select

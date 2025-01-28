@@ -56,7 +56,7 @@ body {
   }
 
   .swiper-slide img {
-    height: 70%;
+    height: 80%;
   }
 }
 
@@ -129,4 +129,9 @@ body {
 
 .custom-parent:hover .custom-child {
   color: #fa5a2a;
+}
+
+/* مخفی کردن نوار اسکرول در مرورگرهای Webkit (مثل Chrome و Safari) */
+::-webkit-scrollbar {
+  display: none; /* این باعث مخفی شدن نوار اسکرول می‌شود */
 }

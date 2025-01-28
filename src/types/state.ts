@@ -10,3 +10,11 @@ export interface IUserDetail {
   addresTitle: string;
   address: string;
 }
+
+export interface IInpuFill {
+  userPhoneNumber?: string;
+  userCountry?: string;
+  userCity?: string;
+  nextStep?: boolean;
+  setUserDetail: any;
+}

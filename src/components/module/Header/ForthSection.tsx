@@ -1,12 +1,12 @@
-import RightArrow from "@/components/icon/RightArrow";
+import LeftArrow from "@/components/icon/LeftArrow";
 import React from "react";
 
 function ForthSection() {
   return (
-    <div className="dark:bg-dark-bg2 flex items-center gap-2 py-5 pr-5 text-sm font-semibold text-text-color dark:text-white  bg-field6 xl:px-[100px] xl:py-6">
+    <div className="flex items-center gap-2 bg-field6 py-5 pr-5 text-sm font-semibold text-text-color dark:bg-dark-bg2 dark:text-white xl:px-[100px] xl:py-6">
       <span className="font-semibold xl:text-sm">خانه</span>
       <div className="">
-        <RightArrow width={22} height={22} stroke="currentColor" />
+        <LeftArrow width={22} height={22} stroke="currentColor" />
       </div>
       <span className="font-semibold xl:text-sm"> ثبت محصول </span>
     </div>

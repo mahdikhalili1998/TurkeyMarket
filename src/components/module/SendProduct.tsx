@@ -25,9 +25,9 @@ function SendProduct() {
       {/* متن و چار خونه */}
       <div className="ml-auto mr-5 flex justify-center pb-4 xl:relative xl:w-2/3 xl:items-center xl:overflow-hidden">
         {/* متن */}
-        <div className="z-20 flex w-[341px] flex-col gap-3 text-white xl:ml-auto xl:mr-5 xl:pr-[146px]">
+        <div className="z-20 flex flex-col items-start gap-3 text-white xl:ml-auto xl:mr-5 xl:pr-[146px]">
           <h2 className="text-xs font-bold xl:text-2xl">ارسال محصول</h2>
-          <p className="text-xs font-semibold xl:w-[570px] xl:text-base">
+          <p className="text-xs p-2 text-right font-semibold xl:flex xl:w-[570px] xl:flex-col xl:items-start xl:text-base">
             پست سریع بین المللی Ran Express ایران با بیش از 40 سال تجربه،
             مجموعه‌ای کامل از خدمات ارسال سریع و مطمئن را به سراسر جهان ارائه
             می‌دهد.
@@ -39,7 +39,7 @@ function SendProduct() {
           </button>
         </div>
         {/* بک گراند چارخونه */}
-        <div className="absolute -top-[35rem] -right-10 hidden xl:block">
+        <div className="absolute -right-10 -top-[35rem] hidden xl:block">
           <BackGroundProduct width={975} height={669} />
         </div>
       </div>

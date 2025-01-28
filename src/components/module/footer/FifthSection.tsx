@@ -1,22 +1,35 @@
-import LeftArrow from "@/components/icon/LeftArrow";
-import React from "react";
+import FaceBook from "@/components/icon/FaceBook";
+import Instagram from "@/components/icon/Instagram";
+import Telegram from "@/components/icon/Telegram";
+import WhatsApp from "@/components/icon/WhatsApp";
 
 function FifthSection() {
   return (
-    <ul className="mt-3 xl:hidden">
-      <li className="mx-4 mt-3 flex items-center justify-between gap-3 rounded-md bg-field6 p-2 px-3 text-text-color dark:bg-[#404248] dark:text-white">
-        <span className="text-xs font-semibold">دسترسی سریع</span>
-        <LeftArrow height={22} width={22} stroke="currentColor" />
-      </li>
-      <li className="mx-4 mt-3 flex items-center justify-between gap-3 rounded-md bg-field6 p-2 px-3 text-text-color dark:bg-[#404248] dark:text-white">
-        <span className="text-xs font-semibold">لینک های مهم</span>
-        <LeftArrow height={22} width={22} stroke="currentColor" />
-      </li>
-      <li className="mx-4 mt-3 flex items-center justify-between gap-3 rounded-md bg-field6 p-2 px-3 text-text-color dark:bg-[#404248] dark:text-white">
-        <span className="text-xs font-semibold">ارتباط با ما</span>
-        <LeftArrow height={22} width={22} stroke="currentColor" />
-      </li>
-    </ul>
+    <div className="mt-3 bg-field6 xl:mt-12 xl:flex xl:items-center xl:justify-between xl:bg-field3 xl:px-[100px] xl:py-[18px]">
+      <p className="hidden p-4 text-xs font-semibold text-text-color xl:block xl:text-base xl:text-white">
+        تمامی حقوق مادی و معنوی این سایت متعلق به سایت{" "}
+        <span className="text-main-orange">ران اکسپرس</span> می باشد.
+      </p>
+      <p className="block p-4 text-xs font-semibold text-text-color xl:hidden">
+        تمامی حقوق این سایت متعلق به سایت
+        <span className="text-main-orange"> ران اکسپرس </span> می باشد.
+      </p>
+      {/* شبکه های اجتماعی */}
+      <ul className="hidden items-center bg-field3 text-text-color xl:flex xl:gap-6">
+        <li className="rounded-[7px] bg-field6 p-[10px]">
+          <WhatsApp width={20} height={20} stroke="currentColor" />
+        </li>
+        <li className="rounded-[7px] bg-field6 p-[10px]">
+          <Telegram width={20} height={20} stroke="currentColor" />
+        </li>
+        <li className="rounded-[7px] bg-field6 p-[10px]">
+          <Instagram width={20} height={20} stroke="currentColor" />
+        </li>
+        <li className="rounded-[7px] bg-field6 p-[10px]">
+          <FaceBook width={20} height={20} stroke="currentColor" />
+        </li>
+      </ul>
+    </div>
   );
 }
 

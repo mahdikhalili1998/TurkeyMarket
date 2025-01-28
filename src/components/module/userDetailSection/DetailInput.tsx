@@ -1,9 +1,12 @@
 "use client";
-import { useState, useRef } from "react";
-import DownArrow from "../../../../public/icon/down.svg";
-import { countries } from "@/constant/countryData";
+import { useState } from "react";
 import ImageTag from "@/components/element/ImageTag";
-import Image from "next/image";
+import PhoneNumber from "@/components/module/userDetailSection/PhoneNumber";
+import Country from "@/components/module/userDetailSection/Country";
+import Cities from "@/components/module/userDetailSection/Cities";
+import DownArrow from "@/components/icon/DownArrow";
+import RightArrow from "@/components/icon/RightArrow";
+import LeftArrow from "@/components/icon/LeftArrow";
 
 function DetailInput() {
   const [userDetail, setUserDetail] = useState({
@@ -12,71 +15,18 @@ function DetailInput() {
     nationalId: "",
     email: "",
     phoneNumber: "",
-    contry: "",
-    city: "",
+    contry: "ترکیه",
+    city: "استانبول",
     PostalCode: "",
     addresTitle: "",
     address: "",
   });
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [countryDropdownOpen, setCountryDropdownOpen] =
-    useState<boolean>(false);
-  const [phoneDropdownOpen, setPhoneDropdownOpen] = useState<boolean>(false);
   const [nextStep, setNextStep] = useState<boolean>(false);
 
-  const [selectedCountry, setSelectedCountry] = useState({
-    name: "ترکیه",
-    flag: "/icon/turkyFlag.svg",
-  });
+  const [checked, setChecked] = useState(true);
 
-  const [selectedPhoneCode, setSelectedPhoneCode] = useState({
-    code: "90+",
-    flag: "/icon/turkyFlag.svg",
-  });
-
-  const [selectedCity, setSelectedCity] = useState(""); // برای ذخیره انتخاب شهر
-
-  const cities = [
-    "استانبول",
-    "آنکارا",
-    "ازمیر",
-    "بورسا",
-    "آنتالیا",
-    "قونیه",
-    "ادیامان",
-    "دیاربکر",
-    "آدانا",
-  ]; // لیست شهرهای ترکیه
-
-  const handleSelectCity = (city: string) => {
-    setSelectedCity(city); // ذخیره انتخاب شهر در state
-  };
-
-  const countryDropdownRef = useRef(null);
-  const phoneDropdownRef = useRef(null);
-
-  const handleSelectCountry = (country: { name: string; flag: string }) => {
-    setSelectedCountry(country);
-    setCountryDropdownOpen(false);
-  };
-
-  const handleSelectPhoneCode = (code: { code: string; flag: string }) => {
-    setSelectedPhoneCode(code);
-    setPhoneDropdownOpen(false);
-  };
-
-  const toggleCountryDropdown = () => {
-    setCountryDropdownOpen((prev) => !prev);
-    setPhoneDropdownOpen(false);
-  };
-
-  const togglePhoneDropdown = () => {
-    setPhoneDropdownOpen((prev) => !prev);
-    setCountryDropdownOpen(false);
-  };
-
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+  const handleChange = () => {
+    setChecked(!checked);
   };
 
   const nextStepHandler = () => {
@@ -91,71 +41,83 @@ function DetailInput() {
   };
 
   return (
-    <div className="mb-10 space-y-8 text-text-color dark:text-white xl:mr-4">
+    <div className="mb-10 gap-3 text-text-color dark:text-white xl:mr-4 xl:flex xl:w-[891px] xl:flex-col xl:gap-6">
       {/* بخش اول */}
-      <div className="flex flex-col items-start gap-8 xl:w-[891px] xl:flex-row">
-        <div className={`flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]`}>
+      <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between xl:gap-4">
+        {/* نام */}
+        <div className={`flex flex-col items-start gap-[17px] xl:w-[254px]`}>
           <label className="text-xs font-bold xl:text-base">نام :</label>
-          <input
-            type="text"
-            placeholder="مهدی"
-            value={userDetail.name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setUserDetail({ ...userDetail, name: e.target.value })
-            }
-            className={`${nextStep && userDetail.name === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[286.5px]`}
-          />
+          <div
+            className={`flex items-center gap-2 text-border-color ${nextStep && userDetail.name === "" ? "border-red-500" : "border-border-color dark:border-main-dark"} w-full rounded-md border-[1px] border-solid px-4 py-[17px]`}
+          >
+            <input
+              type="text"
+              placeholder="مهدی"
+              value={userDetail.name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUserDetail({ ...userDetail, name: e.target.value })
+              }
+              className={`w-full bg-transparent text-sm font-normal text-text-color placeholder:text-gray-300 focus:outline-none dark:text-white`}
+            />
+            <DownArrow height={24} width={24} stroke="currentColor" />
+          </div>
           <span
-            className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} h-1 text-xs text-red-500`}
+            className={`${nextStep && userDetail.name === "" ? "block" : "hidden"} -mt-3 h-1 text-xs font-semibold text-red-500`}
           >
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className="flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]">
+        {/* نام خانوادگی */}
+        <div className={`flex flex-col items-start gap-[17px] xl:w-[254px]`}>
           <label className="text-xs font-bold xl:text-base">
             نام خانوادگی :
           </label>
-          <input
-            type="text"
-            placeholder="خلیلی"
-            className={`${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-input-border"} h-[48px] w-[343px] rounded-md border-2 border-solid bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[286.5px]`}
-            value={userDetail.lastName}
-            onChange={(e) =>
-              setUserDetail({ ...userDetail, lastName: e.target.value })
-            }
-          />
+          <div
+            className={`flex items-center gap-2 text-border-color ${nextStep && userDetail.lastName === "" ? "border-red-500" : "border-border-color dark:border-main-dark"} w-full rounded-md border-[1px] border-solid px-4 py-[17px]`}
+          >
+            <input
+              type="text"
+              placeholder="خلیلی"
+              value={userDetail.lastName}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setUserDetail({ ...userDetail, lastName: e.target.value })
+              }
+              className={`w-full bg-transparent text-sm font-normal text-text-color placeholder:text-gray-300 focus:outline-none dark:text-white`}
+            />
+            <DownArrow height={24} width={24} stroke="currentColor" />
+          </div>
           <span
-            className={`${nextStep && userDetail.lastName === "" ? "block" : "hidden"} h-1 text-xs text-red-500`}
+            className={`${nextStep && userDetail.lastName === "" ? "block" : "hidden"} -mt-3 h-1 text-xs font-semibold text-red-500`}
           >
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className="flex h-[72px] flex-col gap-2 text-sm xl:h-[97px]">
-          <label className="text-xs font-bold xl:text-base">شماره ملی : </label>
+        {/* شماره ملی */}
+        <div className={`flex flex-col items-start gap-[17px] xl:w-[254px]`}>
+          <label className="text-xs font-bold xl:text-base">شماره ملی :</label>
           <input
             type="text"
-            placeholder="271029xxx71"
-            className="h-[48px] w-[343px] rounded-md border-2 border-solid border-input-border bg-transparent p-2 placeholder:text-gray-400 dark:border-main-dark xl:h-[56px] xl:w-[256.5px]"
+            placeholder="2710xxx745"
             value={userDetail.nationalId}
-            onChange={(e) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setUserDetail({ ...userDetail, nationalId: e.target.value })
             }
+            className={`w-full rounded-md border-[1px] border-solid border-border-color bg-transparent px-4 py-[17px] font-normal text-text-color placeholder:text-gray-300 focus:outline-none dark:border-main-dark dark:text-white xl:text-sm`}
           />
         </div>
       </div>
       {/* بخش دوم */}
-      <div className="flex flex-col items-center gap-6 xl:w-[891px] xl:flex-row">
-        <div className="ml-auto flex h-[72px] flex-col gap-2 text-sm xl:h-[97px] xl:items-end">
-          <label className="ml-auto text-xs font-bold xl:text-base">
-            آدرس ایمیل :
-          </label>
+      <div className="mt-3 flex flex-col items-start gap-3 xl:w-[891px] xl:flex-row xl:gap-6">
+        {/* ایمیل */}
+        <div className="flex w-full flex-col items-start gap-2 xl:w-[433.5px] xl:gap-[17px]">
+          <label className="text-xs font-bold xl:text-base">آدرس ایمیل :</label>
           <div
-            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark xl:h-[56px] xl:w-[433.5px]`}
+            className={`${nextStep && userDetail.email === "" ? "border-red-500" : "border-border-color dark:border-main-dark"} flex w-full items-center justify-end rounded-md border-[1px] border-solid bg-transparent p-2 px-4 py-[17px] xl:h-[56px] xl:w-full`}
           >
             <input
               type="email"
               placeholder="mahdi@gamil.com"
-              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg dark:placeholder:bg-dark-bg`}
+              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-dark-bg dark:placeholder:text-gray-300`}
               value={userDetail.email}
               onChange={(e) =>
                 setUserDetail({ ...userDetail, email: e.target.value })
@@ -166,238 +128,127 @@ function DetailInput() {
             </div>
           </div>
           <span
-            className={`${nextStep && userDetail.email === "" ? "block" : "hidden"} ml-auto h-1 text-xs text-red-500`}
+            className={`${nextStep && userDetail.email === "" ? "block" : "hidden"} -mt-3 ml-auto h-1 text-xs font-semibold text-red-500`}
           >
             پر کردن این فیلد اجباری است
           </span>
         </div>
-        <div className="ml-auto flex h-[72px] flex-col gap-2 text-sm xl:h-[97px] xl:items-end">
-          <label className="ml-auto text-xs font-bold xl:text-base">
-            شماره تماس :
+        {/* شماره تماس */}
+        <PhoneNumber
+          setUserDetail={setUserDetail}
+          userPhoneNumber={userDetail.phoneNumber}
+          nextStep={nextStep}
+        />
+      </div>
+      {/* بخش سوم */}
+      <div className="mt-3 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+        <Country
+          userCountry={userDetail.contry}
+          setUserDetail={setUserDetail}
+        />
+        <Cities userCity={userDetail.city} setUserDetail={setUserDetail} />
+        {/* کد پستی */}
+        <div className={`flex flex-col items-start gap-[17px] xl:w-[254px]`}>
+          <label htmlFor="post" className="text-xs font-bold xl:text-base">
+            کد پستی:
           </label>
-          <div
-            className={`${nextStep && userDetail.phoneNumber === "" ? "border-red-500" : "border-input-border"} flex h-[48px] w-[343px] items-center justify-end rounded-md border-2 border-solid bg-transparent p-2 dark:border-main-dark dark:bg-dark-bg xl:h-[56px] xl:w-[433.5px]`}
-          >
+          <input
+            type="text"
+            id="post"
+            placeholder="44161xxx200"
+            value={userDetail.PostalCode}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUserDetail({ ...userDetail, PostalCode: e.target.value })
+            }
+            className={`w-full rounded-md border-[1px] border-solid border-border-color bg-transparent px-4 py-[17px] font-normal text-text-color placeholder:text-gray-300 focus:outline-none dark:border-main-dark dark:text-white xl:text-sm`}
+          />
+        </div>
+      </div>
+      {/* عنوان آدرس  بخش چهارم */}
+      <div className="mt-3 flex flex-col items-start gap-[17px] text-sm xl:h-[97px] xl:w-[891px]">
+        <label htmlFor="titleAddres" className="text-xs font-bold xl:text-base">
+          عنوان آدرس :{" "}
+        </label>
+        <input
+          type="text"
+          placeholder="خانه"
+          id="titleAddres"
+          className="w-full rounded-md border-[1px] border-solid border-border-color bg-transparent px-4 py-[17px] placeholder:pl-2 placeholder:text-right placeholder:text-gray-300 focus:outline-none dark:border-main-dark dark:bg-dark-bg"
+          value={userDetail.addresTitle}
+          onChange={(e) =>
+            setUserDetail({ ...userDetail, addresTitle: e.target.value })
+          }
+        />
+      </div>
+      {/*  بخش پنجم  آدرس کامل*/}
+      <div className="mt-3 flex w-[343px] flex-col items-start gap-[17px] text-sm xl:w-[891px]">
+        <label htmlFor="fullAddres" className="text-xs font-bold xl:text-base">
+          آدرس کامل :{" "}
+        </label>
+        <textarea
+          id="fullAddres"
+          placeholder="آدرس: تهران، خیابان نلسون ماندلا (جردن سابق)"
+          className="h-[114px] w-full resize-none rounded-md border-[1px] border-solid border-border-color bg-transparent px-4 py-[17px] font-semibold text-text-color placeholder:pl-2 placeholder:text-right placeholder:text-gray-300 focus:outline-none dark:border-main-dark dark:bg-dark-bg dark:text-white xl:h-[113px] xl:text-sm"
+          value={userDetail.address}
+          onChange={(e) =>
+            setUserDetail({ ...userDetail, address: e.target.value })
+          }
+        />
+        {/* چک باکس */}
+        <div className="flex items-center gap-2">
+          <div className="relative">
             <input
-              placeholder="0912xxxxxxx"
-              type="text"
-              className={`pl-3 text-left placeholder:pl-2 placeholder:text-left focus:outline-none dark:bg-transparent`}
-              value={userDetail.phoneNumber}
-              onChange={(e) =>
-                setUserDetail({ ...userDetail, phoneNumber: e.target.value })
-              }
+              id="address-checkbox"
+              type="checkbox"
+              checked={checked}
+              onChange={handleChange}
+              className={`peer hidden`}
             />
-
-            <div className="relative">
-              <div
-                className="flex cursor-pointer items-center gap-1 border-r-2 border-solid border-gray-300 pr-2 dark:border-main-dark"
-                onClick={togglePhoneDropdown}
-              >
-                <span>{selectedPhoneCode.code}</span>
-                <Image
-                  src={selectedPhoneCode.flag || "/default-flag.svg"}
-                  alt={selectedPhoneCode.code}
-                  width={24}
-                  height={16}
-                  className="rounded"
-                />
-                <DownArrow className="text-gray-500 dark:text-white" />
-              </div>
-              {phoneDropdownOpen && (
-                <div
-                  ref={phoneDropdownRef}
-                  className="absolute z-10 mt-2 w-full rounded-md border border-gray-300 bg-white shadow-md dark:border-gray-500 dark:bg-main-dark"
+            <div
+              onClick={handleChange}
+              className={`flex h-5 w-5 items-center justify-center rounded ${checked ? "bg-orange-500" : "border-2 border-gray-300 bg-transparent"}`}
+            >
+              {checked && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 18 18"
+                  fill="none"
                 >
-                  <ul className="flex flex-col">
-                    {countries.map((country, index) => (
-                      <li
-                        key={index}
-                        className="flex cursor-pointer items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        onClick={() =>
-                          handleSelectPhoneCode({
-                            code: country.code,
-                            flag: country.flag,
-                          })
-                        }
-                      >
-                        <Image
-                          src={country.flag}
-                          alt={country.name}
-                          width={24}
-                          height={16}
-                          className="rounded"
-                        />
-                        <span className="dark:text-white">{country.code}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <path
+                    d="M15 4.5L6.75 12.75L3 9"
+                    stroke="white"
+                    strokeWidth="1.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               )}
             </div>
           </div>
-          <span
-            className={`${nextStep && userDetail.phoneNumber === "" ? "block" : "hidden"} ml-auto h-1 text-xs text-red-500`}
-          >
-            پر کردن این فیلد اجباری است
-          </span>
-        </div>
-      </div>
-      {/* بخش سوم */}
-      <div className="flex flex-col items-center gap-9 xl:w-[891px] xl:flex-row">
-        <div className="relative ml-auto h-[72px] w-[343px] space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
-          <label className="text-xs font-bold xl:text-base">کشور :</label>
-          <div
-            className="flex h-[48px] cursor-pointer rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark xl:h-[56px] xl:items-center xl:justify-end"
-            onClick={toggleCountryDropdown}
-          >
-            <div className="flex w-full items-center justify-between">
-              <span className="text-gray-400">{selectedCountry.name}</span>
-              <div className="flex items-center gap-2">
-                <Image
-                  src={selectedCountry.flag}
-                  alt={selectedCountry.name}
-                  width={24}
-                  height={16}
-                  className="rounded"
-                />
-                <DownArrow className="text-gray-500 dark:text-white" />
-              </div>
-            </div>
-          </div>
-          {countryDropdownOpen && (
-            <div
-              ref={countryDropdownRef}
-              className="absolute z-10 mt-2 w-full rounded-md border border-gray-300 bg-white shadow-md dark:border-gray-500 dark:bg-main-dark"
-            >
-              <ul className="flex flex-col">
-                {countries.map((country, index) => (
-                  <li
-                    key={index}
-                    className="flex cursor-pointer items-center gap-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                    onClick={() => handleSelectCountry(country)}
-                  >
-                    <Image
-                      src={country.flag}
-                      alt={country.name}
-                      width={24}
-                      height={16}
-                      className="rounded"
-                    />
-                    <span className="dark:text-white">{country.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        {/* <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
-          <label className="text-xs font-bold xl:text-base">شهر :</label>
-          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-gray-500">
-            <div className="flex gap-3">
-              <select
-                id="language"
-                name="language"
-                className="w-[10rem] text-gray-300 focus:outline-none dark:bg-dark-bg"
-              >
-                <option value={userDetail.contry}> استانبول</option>
-              </select>
-            </div>
-          </div>
-        </div> */}
-        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
-          <label className="text-xs font-bold xl:text-base">شهر :</label>
-          <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-gray-300 bg-transparent p-2 dark:border-main-dark">
-            <div className="flex gap-3">
-              <select
-                value={selectedCity} // تنظیم مقدار انتخابی شهر
-                onChange={(e) => handleSelectCity(e.target.value)} // به روز رسانی شهر انتخابی
-                className="w-[20rem] text-gray-300 focus:outline-none dark:bg-dark-bg xl:w-[15rem]"
-              >
-                <option value="">انتخاب شهر</option>
-                {cities.map((city, index) => (
-                  <option key={index} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div className="ml-auto flex h-[72px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[286.33px]">
-          <label className="text-xs font-bold xl:text-base">کدپستی : </label>
-          <div className="flex items-center rounded-md border-2 border-solid border-input-border bg-transparent dark:border-main-dark">
-            <input
-              placeholder="4416166400"
-              className="h-[48px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:w-[10rem]"
-              value={userDetail.PostalCode}
-              onChange={(e) =>
-                setUserDetail({ ...userDetail, PostalCode: e.target.value })
-              }
-            />
-          </div>
-        </div>
-      </div>
-      {/* بخش چهارم */}
-      <div className="flex h-[89px] w-[343px] flex-col space-y-4 text-sm xl:h-[97px] xl:w-[891px]">
-        <label className="text-xs font-bold">عنوان آدرس : </label>
-        <div className="flex h-[56px] items-center rounded-md border-2 border-solid border-input-border bg-transparent p-2 dark:border-main-dark">
-          <input
-            type="text"
-            placeholder="خانه"
-            className="w-full placeholder:pl-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg"
-            value={userDetail.addresTitle}
-            onChange={(e) =>
-              setUserDetail({ ...userDetail, addresTitle: e.target.value })
-            }
-          />
-        </div>
-      </div>
-      {/* بخش پنجم */}
-      <div className="flex h-[200px] w-[343px] flex-col space-y-4 text-sm xl:h-[193px] xl:w-[891px]">
-        <label className="text-xs font-bold xl:text-base">آدرس کامل : </label>
-        <div className="flex items-center rounded-md border-2 border-solid border-input-border bg-transparent dark:border-main-dark">
-          <input
-            placeholder="آدرس : تهران ، خیابان نلسون ماندلا و ..."
-            className="h-[148px] placeholder:px-2 placeholder:text-right placeholder:text-gray-400 focus:outline-none dark:bg-dark-bg xl:h-[111px] xl:w-[891px]"
-            value={userDetail.address}
-            onChange={(e) =>
-              setUserDetail({ ...userDetail, address: e.target.value })
-            }
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <input
-            id="custom-checkbox"
-            type="checkbox"
-            checked={isChecked} // اتصال وضعیت به state
-            onChange={handleCheckboxChange} // تغییر وضعیت با کلیک
-            className="peer hidden"
-          />
           <label
-            htmlFor="custom-checkbox"
-            className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border-2 font-semibold ${isChecked ? "bg-orange-500 text-white dark:border-none" : "border-gray-600"}`}
+            htmlFor="address-checkbox"
+            className="cursor-pointer text-xs font-bold text-text-color dark:text-white xl:text-base"
           >
-            {isChecked ? "✓" : ""}{" "}
+            در دفتر آدرس‌ها ذخیره شود
           </label>
-          <span className="ml-2 text-xs font-bold xl:text-sm">
-            در دفتر آدرس ها ذخیره شود
-          </span>
         </div>
       </div>
       {/* دکمه ها */}
-      <div className="flex w-[343] items-center justify-center gap-4 xl:justify-end">
-        <button className="flex h-[48px] w-[164px] items-center rounded-lg bg-bg-gray p-2 text-xs text-text-color dark:bg-main-dark dark:text-gray-400 xl:w-[128px] xl:text-sm">
-          <ImageTag src="right" width={24} height={24} />
-          <span className="text-gray-300">مرحله قبل</span>
+      <div className="mt-4 flex w-full items-center justify-between gap-[15px] text-xs font-semibold xl:mr-auto xl:mt-10 xl:w-max xl:justify-end xl:text-sm">
+        {/* مرحله قبل */}
+        <button className="flex w-full items-center justify-center rounded-[10px] bg-field6 px-4 py-3 text-gray-300 dark:bg-field3 dark:text-gray-400 xl:w-max xl:gap-2 xl:px-[18px]">
+          <RightArrow width={24} height={24} stroke="currentColor" />
+          <span className="dark:text-gray-400">مرحله قبل</span>
         </button>
+        {/* مرحله بعد */}
         <button
           onClick={nextStepHandler}
-          className="flex h-[48px] w-[164px] items-center justify-center rounded-lg bg-main-orange p-2 text-xs text-white xl:w-[128px] xl:text-sm"
+          className="flex w-full items-center justify-center rounded-lg bg-main-orange px-4 py-3 text-white xl:w-max xl:gap-2 xl:px-[18px]"
         >
           <span className="text-white">مرحله بعد</span>
-          <ImageTag src="left" width={24} height={24} />
+          <LeftArrow width={24} height={24} stroke="currentColor" />
         </button>
       </div>
     </div>

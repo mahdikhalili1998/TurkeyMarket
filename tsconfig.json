@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/module/Header/Language.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/module/Header/Language.jsx", "src/components/module/userDetailSection/DetailInput.tsx", "src/components/module/userDetailSection/Country.tsx", "src/constant/countryData.js"],
   "exclude": ["node_modules"]
 }

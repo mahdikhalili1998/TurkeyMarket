@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface IStoryData {
   id: string;
   name: string;
@@ -7,5 +9,5 @@ export interface IStoryData {
 export interface ICountry {
   name: string;
   code: string;
-  flag: string;
+  flag: JSX.Element;
 }

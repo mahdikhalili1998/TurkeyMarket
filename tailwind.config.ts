@@ -19,7 +19,7 @@ export default {
         "dark-bg": "#25272c",
         "dark-bg2": "#212121",
         "text-color": "#4D4D4D",
-
+        "border-color": "#E4E4E4",
         "bg-gray": "#F6F6F6",
         field6: "#F6F6F6",
         field3: "#3A3C42",

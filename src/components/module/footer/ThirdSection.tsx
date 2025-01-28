@@ -1,29 +1,57 @@
-import ImageTag from "@/components/element/ImageTag";
+
+import Email from "@/components/icon/Email";
+import FooterTel from "@/components/icon/FooterTel";
+import Location from "@/components/icon/Location";
 import React from "react";
 
 function ThirdSection() {
   return (
-    <div className="mx-16 mt-12 hidden items-center justify-between gap-[103px] dark:bg-field3 dark:text-white xl:mx-[100px] xl:flex">
-      {/* متن ها و سبد  */}
-      <div className="items-start xl:flex xl:flex-col">
-        <div className="flex items-center gap-3">
-          <ImageTag src="basket" width={49} height={38} />
-          <span className="text-base font-semibold">
-            شرکت خدمات حمل و نقل ران اکسپرس
-          </span>
-        </div>
-        <p className="mt-3 xl:text-sm/5 xl:font-semibold">
-          پست سریع بین المللی تی‌ان‌تی ایران، از سال ۱۹۸۱ فعالیت خود را آغاز
-          کرده و با بیش از چهل سال تجربه، به عنوان یکی <br />
-          از پیشگامان خدمات پستی در ایران شناخته می‌شود. این شرکت دارای
-          نمایندگی‌های فعال در شهرهای مختلف ایران <br></br>است و خدمات گسترده‌ای
-          را ارائه می‌دهد که شامل راهکارهای نوین زنجیره حمل و نقل می‌شود. 
-        </p>
-      </div>
-      {/* سه لوگو */}
-      <div className="mt-3 pr-6">
-        <ImageTag src="logo" width={400} height={200} />
-      </div>
+    <div className="hidden items-center justify-between gap-[160px] xl:flex">
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+        <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
+          لینک های مهم
+        </li>
+        <li className="hover:text-main-orange">رهگیری مرسولات</li>
+        <li className="hover:text-main-orange">سوالات متداول</li>
+        <li className="hover:text-main-orange">قوانین و مقررات</li>
+        <li className="hover:text-main-orange">درباره ما</li>
+      </ul>
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+        <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
+          لینک های مهم
+        </li>
+        <li className="hover:text-main-orange">رهگیری مرسولات</li>
+        <li className="hover:text-main-orange">سوالات متداول</li>
+        <li className="hover:text-main-orange">قوانین و مقررات</li>
+        <li className="hover:text-main-orange">درباره ما</li>
+      </ul>
+      <ul className="flex cursor-pointer flex-col items-start gap-3 font-semibold xl:text-base">
+        <li className="border-r-[3px] border-solid border-main-orange px-[10px] font-bold hover:text-main-orange">
+          لینک های مهم
+        </li>
+        <li className="hover:text-main-orange">رهگیری مرسولات</li>
+        <li className="hover:text-main-orange">سوالات متداول</li>
+        <li className="hover:text-main-orange">قوانین و مقررات</li>
+        <li className="hover:text-main-orange">درباره ما</li>
+      </ul>
+      {/* ادرس و واتس آپ و ساعت کاری */}
+      <ul className="flex flex-col gap-5 rounded-md bg-field6 p-4 font-semibold text-text-color xl:text-sm">
+        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-main-orange px-[10px] font-bold">
+          <Location width={20} height={21} stroke="currentColor" />
+          <span>آدرس: تهران، خیابان نلسون ماندلا (جردن سابق)</span>
+        </li>
+        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-main-orange px-[10px] font-bold">
+          <FooterTel width={20} height={21} stroke="currentColor" />
+          <span>شماره تماس :۰۲۱-۲۱۲۳۴ - ۲۱۲۴۱</span>
+        </li>
+        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-main-orange px-[10px] font-bold">
+          <Email width={20} height={21} stroke="currentColor" />
+          <span>آدرس ایمیل: sales@tntiran.com</span>
+        </li>
+        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-main-orange px-[10px] font-bold">
+          <span>شنبه تا چهارشنبه: 8 الی 16 - پنجشنبه: 8 الی 13</span>
+        </li>
+      </ul>
     </div>
   );
 }

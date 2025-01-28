@@ -22,35 +22,28 @@ import { Navigation } from "swiper/modules";
 function StorySection() {
   const [data, setData] = useState<IStoryData[]>([]);
   const [selectedStory, setSelectedStory] = useState<IStoryData | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // بررسی اینکه آیا دستگاه موبایل است
+  // غیرفعال کردن اسکرول عمودی و افقی
   useEffect(() => {
-    const checkIsMobile = window.innerWidth <= 768;
-    setIsMobile(checkIsMobile);
-  }, []);
-
-  // غیرفعال کردن اسکرول و جلوگیری از حرکت صفحه
-  useEffect(() => {
-    if (selectedStory && isMobile) {
-      document.body.style.overflow = "hidden"; // اسکرول غیرفعال
-      document.body.style.touchAction = "none"; // جلوگیری از حرکت صفحه با انگشت
-      document.documentElement.style.overflow = "hidden"; // برای اطمینان از غیرفعال بودن اسکرول در HTML
-      document.documentElement.style.touchAction = "none"; // جلوگیری از حرکت در HTML
+    if (selectedStory) {
+      document.body.style.overflow = "hidden"; // غیرفعال کردن اسکرول
+      document.body.style.touchAction = "none"; // جلوگیری از لمس
+      document.documentElement.style.overflow = "hidden"; // جلوگیری از اسکرول در html
+      document.documentElement.style.touchAction = "none"; // جلوگیری از لمس در html
     } else {
-      document.body.style.overflow = ""; // بازگرداندن اسکرول به حالت عادی
-      document.body.style.touchAction = ""; // بازگرداندن touchAction
-      document.documentElement.style.overflow = ""; // بازگرداندن اسکرول در HTML
-      document.documentElement.style.touchAction = ""; // بازگرداندن touchAction در HTML
+      document.body.style.overflow = ""; // بازگرداندن به حالت عادی
+      document.body.style.touchAction = ""; // بازگرداندن لمس
+      document.documentElement.style.overflow = ""; // بازگرداندن اسکرول
+      document.documentElement.style.touchAction = ""; // بازگرداندن لمس
     }
 
     return () => {
-      document.body.style.overflow = ""; // بازگرداندن اسکرول در cleanup
-      document.body.style.touchAction = "";
-      document.documentElement.style.overflow = ""; // بازگرداندن اسکرول در HTML
-      document.documentElement.style.touchAction = "";
+      document.body.style.overflow = ""; // بازگرداندن اسکرول
+      document.body.style.touchAction = ""; // بازگرداندن لمس
+      document.documentElement.style.overflow = ""; // بازگرداندن اسکرول
+      document.documentElement.style.touchAction = ""; // بازگرداندن لمس
     };
-  }, [selectedStory, isMobile]);
+  }, [selectedStory]);
 
   useEffect(() => {
     setData(storyData);
@@ -83,7 +76,7 @@ function StorySection() {
           <StorySwiperSlide key={index}>
             <div
               onClick={() => seenStoryHandler(item)}
-              className="flex h-[74px] w-[54px] cursor-pointer flex-col items-center xl:h-[110px] xl:w-[84px]"
+              className="flex h-[78px] w-[54px] cursor-pointer flex-col items-center xl:h-[110px] xl:w-[84px]"
             >
               <Image
                 src={`/image/${item.id}.png`}
@@ -102,8 +95,14 @@ function StorySection() {
 
       {/* Post Swiper */}
       {selectedStory && (
-        <div className="xl:fixed absolute left-0 -top-[16rem] z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 xl:left-0 xl:top-0">
-          <div className="relative w-[100%] max-w-[600px] rounded-lg bg-[#17161699] p-4 shadow-lg dark:bg-darkMoodBg">
+        <div
+          className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50"
+          onClick={closePostSwiper} // بستن استوری با کلیک روی پس‌زمینه
+        >
+          <div
+            className="relative w-[100%] max-w-[600px] rounded-lg bg-[#17161699] p-4 shadow-lg dark:bg-darkMoodBg"
+            onClick={(e) => e.stopPropagation()} // جلوگیری از کلیک روی محتوای داخلی
+          >
             <button
               onClick={closePostSwiper}
               className="absolute right-2 top-5 text-red-500 hover:text-red-500"
@@ -117,8 +116,8 @@ function StorySection() {
               navigation={true}
               pagination={{ clickable: true }}
               autoplay={{
-                delay: 3000, // مدت زمان توقف هر اسلاید (بر حسب میلی‌ثانیه)
-                disableOnInteraction: false, // در صورت تعامل کاربر، autoplay متوقف نمی‌شود
+                delay: 3000,
+                disableOnInteraction: false,
               }}
               modules={[Pagination, Navigation, Autoplay]}
               className="postSwiper"

@@ -1,11 +1,12 @@
+import { IIcon } from "@/types/icon";
 import React from "react";
 
-function TurkyFlag() {
+function Turky({ width, height }: IIcon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="31"
-      height="22"
+      width={width}
+      height={height}
       viewBox="0 0 31 22"
       fill="none"
     >
@@ -37,4 +38,4 @@ function TurkyFlag() {
   );
 }
 
-export default TurkyFlag;
+export default Turky;

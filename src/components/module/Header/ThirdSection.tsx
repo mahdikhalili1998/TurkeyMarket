@@ -9,10 +9,10 @@ import DownArrow from "@/components/icon/DownArrow";
 import { useState } from "react";
 import KalaKhorde from "@/components/icon/KalaKhorde";
 import KalayOmde from "@/components/icon/KalayOmde";
-import RightArrow from "@/components/icon/RightArrow";
 import TopArrow from "@/components/icon/TopArrow";
 import RanExpressHeader from "@/components/icon/RanExpressHeader";
 import Seller from "@/components/icon/Seller";
+import LeftArrow from "@/components/icon/LeftArrow";
 
 function ThirdSection() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -76,11 +76,7 @@ function ThirdSection() {
                   </span>
                   <span className="custom-child text-text-color dark:text-white">
                     {optionName === "khorde" && optionHover ? (
-                      <RightArrow
-                        width={24}
-                        height={24}
-                        stroke="currentColor"
-                      />
+                      <LeftArrow width={24} height={24} stroke="currentColor" />
                     ) : (
                       <TopArrow width={24} height={24} stroke="currentColor" />
                     )}
@@ -100,11 +96,7 @@ function ThirdSection() {
                   </span>
                   <span className="custom-child text-text-color dark:text-white">
                     {optionName === "omde" && optionHover ? (
-                      <RightArrow
-                        width={24}
-                        height={24}
-                        stroke="currentColor"
-                      />
+                      <LeftArrow width={24} height={24} stroke="currentColor" />
                     ) : (
                       <TopArrow width={24} height={24} stroke="currentColor" />
                     )}
@@ -128,11 +120,7 @@ function ThirdSection() {
                   </span>
                   <span className="custom-child text-text-color dark:text-white">
                     {optionName === "express" && optionHover ? (
-                      <RightArrow
-                        width={24}
-                        height={24}
-                        stroke="currentColor"
-                      />
+                      <LeftArrow width={24} height={24} stroke="currentColor" />
                     ) : (
                       <TopArrow width={24} height={24} stroke="currentColor" />
                     )}
@@ -152,11 +140,7 @@ function ThirdSection() {
                   </span>
                   <span className="custom-child text-text-color dark:text-white">
                     {optionName === "seller" && optionHover ? (
-                      <RightArrow
-                        width={24}
-                        height={24}
-                        stroke="currentColor"
-                      />
+                      <LeftArrow width={24} height={24} stroke="currentColor" />
                     ) : (
                       <TopArrow width={24} height={24} stroke="currentColor" />
                     )}
