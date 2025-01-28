@@ -62,7 +62,7 @@ body {
 }
 @media (max-width: 500px) {
   .swiper {
-    width: 70%;
+
     height: auto;
   }
 

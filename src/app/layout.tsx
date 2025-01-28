@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="dark" lang="fa" dir="rtl">
-      <body className="mx-auto min-w-[375px] max-w-[1800px] text-center font-fontiran">
+      <body className="mx-auto max-w-[1800px] text-center font-fontiran">
         <Layout>{children}</Layout>
       </body>
     </html>
