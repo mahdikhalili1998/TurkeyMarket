@@ -1,4 +1,5 @@
 "use client";
+import DownArrow from "@/components/icon/DownArrow";
 import Turky from "@/components/icon/Turky";
 import { countries } from "@/constant/countryData";
 import { IInpuFill } from "@/types/state";
@@ -11,6 +12,17 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
   );
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openModal]);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -54,6 +66,7 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
             {code}
           </span>
           {countryFlag}
+          <DownArrow width={24} height={24} stroke="currentColor" />
         </div>
         {openModal && (
           <div
@@ -61,10 +74,10 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
             className="absolute left-3 top-14 z-10 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
-              className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
+              className="scrollbar-hidden max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch", // فعال‌سازی اسکرول لمسی
-                touchAction: "pan-y", // فعال کردن اسکرول عمودی
+                WebkitOverflowScrolling: "touch", // اسکرول نرم در موبایل
+                touchAction: "pan-y", // اجازه‌ی تاچ عمودی
               }}
             >
               {countries.map((item) => (

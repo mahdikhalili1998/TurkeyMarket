@@ -4,17 +4,11 @@ import { cities } from "@/constant/countryData";
 import { IInpuFill } from "@/types/state";
 import React, { useState, useRef, useEffect } from "react";
 
-function Country({ setUserDetail, userCity }: IInpuFill) {
+function City({ setUserDetail, userCity }: IInpuFill) {
   const [openModal, setOpenModal] = useState(false);
   const [filteredCity, setFilteredCity] = useState(cities);
   const [noResults, setNoResults] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      setOpenModal(false);
-    }
-  };
 
   useEffect(() => {
     if (openModal) {
@@ -26,6 +20,12 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
       document.body.style.overflow = "";
     };
   }, [openModal]);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      setOpenModal(false);
+    }
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -69,13 +69,12 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 z-50 w-40 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
+            className="absolute left-3 top-14 z-50 w-40 rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
-              className="scrollbar-hidden max-h-[96px] overflow-y-auto"
+              className="scrollbar-hidden max-h-40 overflow-y-auto overscroll-contain"
               style={{
                 WebkitOverflowScrolling: "touch", // اسکرول نرم در موبایل
-                touchAction: "pan-y", // جلوگیری از اسکرول کل صفحه
               }}
             >
               {noResults ? (
@@ -107,4 +106,4 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
   );
 }
 
-export default Country;
+export default City;
