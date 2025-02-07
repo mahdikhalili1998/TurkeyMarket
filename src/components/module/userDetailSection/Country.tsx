@@ -50,6 +50,7 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
           value={userCountry}
           onChange={handleInputChange}
           id="country"
+          autoComplete="off"
           className="w-full text-sm font-normal text-text-color focus:outline-none dark:bg-transparent"
         />
         <div
@@ -67,9 +68,11 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
             <div
               className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch", // فعال‌سازی اسکرول لمسی
-                touchAction: "pan-y", // فعال کردن اسکرول عمودی
+                WebkitOverflowScrolling: "touch",
+                touchAction: "pan-y",
+                overflowY: "auto",
               }}
+              onTouchMove={(e) => e.stopPropagation()} // جلوگیری از بلاک شدن اسکرول
             >
               {noResults ? (
                 <div className="p-2 text-center text-sm text-gray-500 dark:text-white">

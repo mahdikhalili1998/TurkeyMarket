@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <div>
+    <div className="mx-auto flex flex-col justify-center text-center">
       <Header />
       <div>{children}</div>
       <Footer />
