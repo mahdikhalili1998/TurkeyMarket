@@ -54,12 +54,12 @@ function Country({ setUserDetail, userPhoneNumber, nextStep }: IInpuFill) {
         <input
           type="text"
           value={userPhoneNumber}
-          onChange={(e) =>
+          onChange={(e) => {
             setUserDetail((prev: any) => ({
               ...prev,
               phoneNumber: e.target.value,
-            }))
-          }
+            }));
+          }}
           id="phoneNumber"
           placeholder="0912xxx2121"
           className="w-full text-left text-sm font-normal placeholder:pl-2 placeholder:text-left placeholder:text-gray-300 focus:outline-none dark:bg-transparent"

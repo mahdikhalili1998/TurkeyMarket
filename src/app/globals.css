@@ -13,6 +13,18 @@
   max-width: 100%; /* جلوگیری از افزایش عرض بیش از حد */
 }
 
+/* مخفی کردن نوار اسکرول در تمامی مرورگرها */
+html,
+body {
+  scrollbar-width: none; /* برای فایرفاکس */
+  -ms-overflow-style: none; /* برای اینترنت اکسپلورر و اج */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* برای کروم، سافاری و اپرا */
+}
+
 html,
 body {
   overflow-x: hidden !important;
@@ -58,9 +70,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@media (max-width: 380px) {
 }
 
 @media (max-width: 480px) {
