@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="dark overflow-x-hidden" lang="fa" dir="rtl">
-      <body className="mx-auto min-h-screen max-w-[1800px] overflow-x-hidden text-center font-fontiran">
+      <body className="mx-auto min-h-screen max-w-[2200px] overflow-x-hidden text-center font-fontiran">
         <Layout>{children}</Layout>
       </body>
     </html>
