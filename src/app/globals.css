@@ -5,6 +5,19 @@
 #app {
   height: 100%;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  max-width: 100%; /* جلوگیری از افزایش عرض بیش از حد */
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -26,8 +39,9 @@ body {
 }
 
 .swiper {
+  /* width: 100%; */
   width: 1236px;
-  height: 112.89px;
+  height: 115.89px;
 }
 
 .swiper-slide {
@@ -46,6 +60,9 @@ body {
   object-fit: cover;
 }
 
+@media (max-width: 380px) {
+}
+
 @media (max-width: 480px) {
   .swiper {
     width: 100%;
@@ -62,7 +79,6 @@ body {
 }
 @media (max-width: 500px) {
   .swiper {
-
     height: auto;
   }
 

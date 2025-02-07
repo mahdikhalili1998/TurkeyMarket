@@ -41,7 +41,7 @@ function DetailInput() {
   };
 
   return (
-    <div className="500:w-full mb-10 gap-3 text-text-color dark:text-white xl:mr-4 xl:flex xl:w-[891px] xl:flex-col xl:gap-6">
+    <div className="w-full mb-10 gap-3 text-text-color dark:text-white xl:mr-4 xl:flex xl:w-[891px] xl:flex-col xl:gap-6">
       {/* بخش اول */}
       <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between xl:gap-4">
         {/* نام */}

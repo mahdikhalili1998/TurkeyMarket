@@ -68,24 +68,25 @@ function StorySection() {
         breakpoints={{
           1024: { slidesPerView: 11 },
           768: { slidesPerView: 5 },
-          500: { slidesPerView: 10, spaceBetween: 2 },
-          320: { slidesPerView: 5 },
+          500: { slidesPerView: 6, spaceBetween: 2 },
+          400: { slidesPerView: 5, spaceBetween: 2 },
+          320: { slidesPerView: 4, spaceBetween: 0 },
         }}
       >
         {data.map((item, index) => (
           <StorySwiperSlide key={index}>
             <div
               onClick={() => seenStoryHandler(item)}
-              className="flex h-[78px] w-[54px] cursor-pointer flex-col items-center xl:h-[110px] xl:w-[84px]"
+              className="400:h-[83px] flex h-[83px] w-[54px] cursor-pointer flex-col items-center pr-2 xl:h-[120px] xl:w-[84px]"
             >
               <Image
                 src={`/image/${item.id}.png`}
                 alt={item.name}
                 width={50}
                 height={50}
-                className="500:h-[90px] 500:w-[90px] h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white"
+                className="h-[50px] w-[50px] rounded-full border-[3px] border-main-orange dark:border-white 500:h-[90px] 500:w-[90px]"
               />
-              <span className="500:text-sm mt-2 font-semibold dark:text-white xl:text-base">
+              <span className="mt-2 font-semibold dark:text-white 500:text-sm xl:text-base">
                 {item.name}
               </span>
             </div>
