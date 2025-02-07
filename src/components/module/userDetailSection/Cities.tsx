@@ -1,6 +1,5 @@
 "use client";
 import DownArrow from "@/components/icon/DownArrow";
-
 import { cities } from "@/constant/countryData";
 import { IInpuFill } from "@/types/state";
 import React, { useState, useRef, useEffect } from "react";
@@ -16,6 +15,17 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
       setOpenModal(false);
     }
   };
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه اصلی
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openModal]);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -54,21 +64,18 @@ function Country({ setUserDetail, userCity }: IInpuFill) {
           onClick={() => setOpenModal((prev) => !prev)}
           className="flex cursor-pointer items-center gap-1 text-border-color"
         >
-          {/* <span className="font-normal text-text-color xl:text-sm">
-            {cityName}
-          </span> */}
           <DownArrow width={24} height={24} stroke="currentColor" />
         </div>
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 z-50 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
+            className="absolute left-3 top-14 z-50 w-40 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
             <div
-              className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
+              className="scrollbar-hidden max-h-[96px] overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch", // فعال‌سازی اسکرول لمسی
-                touchAction: "pan-y", // فعال کردن اسکرول عمودی
+                WebkitOverflowScrolling: "touch", // اسکرول نرم در موبایل
+                touchAction: "pan-y", // جلوگیری از اسکرول کل صفحه
               }}
             >
               {noResults ? (
