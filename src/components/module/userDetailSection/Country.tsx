@@ -14,6 +14,18 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
   const [noResults, setNoResults] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  // وقتی مودال باز میشه، اسکرول صفحه اصلی رو غیرفعال کن
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openModal]);
+
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
       setOpenModal(false);
@@ -63,16 +75,15 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
         {openModal && (
           <div
             ref={modalRef}
-            className="absolute left-3 top-14 z-10 w-40 space-y-4 overflow-hidden rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
+            className="absolute left-3 top-14 z-10 w-40 rounded-lg bg-white p-3 shadow-lg dark:bg-darkMoodBg"
           >
+            {/* لیست کشورها */}
             <div
-              className="scrollbar-hidden touch-scroll max-h-32 overflow-y-auto"
+              className="scrollbar-hidden max-h-32 overflow-y-auto"
               style={{
-                WebkitOverflowScrolling: "touch",
-                touchAction: "pan-y",
-                overflowY: "auto",
+                WebkitOverflowScrolling: "touch", // اسکرول نرم در موبایل
+                touchAction: "pan-y", // اجازه‌ی تاچ عمودی
               }}
-              onTouchMove={(e) => e.stopPropagation()} // جلوگیری از بلاک شدن اسکرول
             >
               {noResults ? (
                 <div className="p-2 text-center text-sm text-gray-500 dark:text-white">
@@ -88,7 +99,7 @@ function Country({ setUserDetail, userCountry }: IInpuFill) {
                         ...prev,
                         contry: item.name,
                       }));
-                      setCountryFlag(item.flag); // تغییر پرچم
+                      setCountryFlag(item.flag);
                       setOpenModal(false);
                     }}
                   >
